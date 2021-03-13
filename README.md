@@ -12,7 +12,7 @@ Projet L3 Développement d'applications web
 * Modifier le `.env` avec **vos** informations de connexion
 * Dans un terminal à la racine du projet faire un `composer update`
 * Rendez-vous sur `localhost` ou `localhost\[dossierProjet]`
-* `localhost\test` devrait vous afficher un jeu de données issu la table Test de la base de données
+* `localhost\test` devrait vous afficher un jeu de données issu de la table Test de la base de données
 * *It just Work !*
 
 ## Fonctionalités 
