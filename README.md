@@ -19,3 +19,8 @@ Projet L3 Développement d'applications web
 
 * Réécriture d'URL
 * Architecture MVC 
+
+## Ressources 
+
+* https://nouvelle-techno.fr/actualites/live-coding-introduction-au-mvc-en-php
+* https://github.com/devcoder-xyz/php-dotenv
