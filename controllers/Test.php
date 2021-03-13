@@ -8,8 +8,12 @@ class Test extends Controller
 {
 
     public function index(){
-        $this->loadModel("Test");
-        $tests = $this->Test->getAll();
+        $model = "test";
+        $this->loadModel($model);
+        $tests = $this->$model->getOne();
+        
+        echo '<pre>';
         var_dump($tests);
+        echo '</pre>';
     }
 }
