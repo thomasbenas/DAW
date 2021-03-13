@@ -18,7 +18,7 @@ abstract class Model
 
     public function __construct()
     {
-        (new DotEnv(__DIR__ . '/.env'))->load();
+        (new DotEnv('.env'))->load();
 
         $this->host = getenv('database_dns');
         $this->username = getenv('database_user');
@@ -37,7 +37,7 @@ abstract class Model
 
     public function getOne() : mixed
     {
-        $sql = "SELECT * FROM " . $this->table . "WHERE id =" . $this->id;
+        $sql = "SELECT * FROM " . $this->table . " WHERE id=".$this->id;
         $query = $this->connection->prepare($sql);
         $query->execute();
         return $query->fetch();
