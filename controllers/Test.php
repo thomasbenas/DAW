@@ -1,10 +1,8 @@
 <?php
 
+namespace app\controllers;
 
-namespace app\controller;
-
-
-use app\Controller;
+use app\core\controller;
 
 class Test extends Controller
 {

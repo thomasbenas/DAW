@@ -1,13 +1,13 @@
 <?php
 
+namespace app\controllers;
 
-namespace app\controller;
+use app\core\controller;
 
-
-class Main
+class Main extends Controller
 {
     public function index(): void
     {
-      //TODO
+      echo "prout";
     }
 }
