@@ -6,7 +6,10 @@ use app\core\controller;
 
 class Test extends Controller
 {
+
     public function index(){
-        echo 'Ceci est un test';
+        $this->loadModel("Test");
+        $tests = $this->Test->getAll();
+        var_dump($tests);
     }
 }
