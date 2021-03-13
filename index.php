@@ -4,8 +4,8 @@ use app\controller\Main;
 
 define('ROOT', str_replace('index.php','',$_SERVER['SCRIPT_FILENAME']));
 
-require_once(ROOT.'app/Model.php');
-require_once(ROOT.'app/Controller.php');
+require_once __DIR__.'/vendor/autoload.php';
+
 
 // On sèpare les paramètres et on les dans le tableau $params
 $params = explode('/', $_GET['p']);
