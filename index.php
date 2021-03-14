@@ -15,8 +15,10 @@ if($params[0] !== ""){
     $controllerNameSpace = "\app\src\controllers\\". $controller."Controller";
 
     if(method_exists($controllerNameSpace, $action)){
+        unset($params[0], $params[1]);
+
         $controller = new $controllerNameSpace();
-        $controller->$action();
+        call_user_func_array([$controller, $action], $params);
     }
     else{
         http_response_code(404);
