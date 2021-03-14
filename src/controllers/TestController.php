@@ -12,8 +12,8 @@ class TestController extends Controller
         $this->loadModel($model);
         $tests = $this->$model->getAll();
         
-        echo '<pre>';
-        var_dump($tests);
-        echo '</pre>';
+        $this->render('test', 'index', [
+            'tests' => $tests,
+        ]);
     }
 }

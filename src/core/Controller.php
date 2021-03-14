@@ -13,4 +13,11 @@ abstract class Controller
         $this->$model = new $modelNameSpace();
     }
 
+    public function render(string $folder, string $file, array $data = [])
+    {
+        extract($data, null);
+        require_once('../views/'.$folder.'/'.$file.'.php');
+
+    }
+
 }
