@@ -16,7 +16,7 @@ abstract class Controller
     public function render(string $folder, string $file, array $data = [])
     {
         extract($data, null);
-        require_once('../views/'.$folder.'/'.$file.'.php');
+        require_once(ROOT.'src/views/'.$folder.'/'.$file.'.php');
 
     }
 
