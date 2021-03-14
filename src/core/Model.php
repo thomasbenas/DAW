@@ -38,16 +38,14 @@ abstract class Model
     public function getOne() : mixed
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE id=".$this->id;
-        $query = $this->connection->prepare($sql);
-        $query->execute();
+        $query = $this->connection->query($sql);
         return $query->fetch();
     }
 
     public function getAll() : mixed
     {
         $sql = "SELECT * FROM " . $this->table;
-        $query = $this->connection->prepare($sql);
-        $query->execute();
+        $query = $this->connection->query($sql);
         return $query->fetchAll();
     }
 
