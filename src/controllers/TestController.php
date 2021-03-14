@@ -16,4 +16,14 @@ class TestController extends Controller
             'tests' => $tests,
         ]);
     }
+
+    public function show(string $slug){
+        $model = "test";
+        $this->loadModel($model);
+        $tests = $this->$model->findBySlug($slug);
+
+        $this->render('test', 'voir', [
+            'tests' => $tests,
+        ]);
+    }
 }
