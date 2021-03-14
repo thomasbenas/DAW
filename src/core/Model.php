@@ -51,7 +51,7 @@ abstract class Model
 
     public function findBySlug(string $slug) : mixed
     {
-        $sql = "SELECT * FROM ". $this->table ." WHERE slug=".$slug;
+        $sql = "SELECT * FROM ".$this->table." WHERE `slug`='".$slug."'";
         $query = $this->connection->query($sql);
         return $query->fetch(\PDO::FETCH_ASSOC);
     }

@@ -1,3 +1,3 @@
-<h2><?= /** @var string $test */ $test['id'] ?></h2>
+<h2><?= /** @var string $tests */ $tests['id'] ?></h2>
 
-<p><?= $test['str'] ?></p>
+<p><?= $tests['str'] ?></p>

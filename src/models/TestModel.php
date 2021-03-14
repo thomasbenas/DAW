@@ -18,4 +18,5 @@ class TestModel extends Model
         $this->table = "test";
         $this->connection();
     }
+    
 }

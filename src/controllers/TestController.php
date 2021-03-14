@@ -17,7 +17,7 @@ class TestController extends Controller
         ]);
     }
 
-    public function show(string $slug){
+    public function voir(string $slug){
         $model = "test";
         $this->loadModel($model);
         $tests = $this->$model->findBySlug($slug);
