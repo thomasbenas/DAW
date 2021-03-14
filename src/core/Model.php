@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\core;
+namespace app\src\core;
 
 use app\libraries\DotEnv;
 

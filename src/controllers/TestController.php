@@ -1,16 +1,16 @@
 <?php
 
-namespace app\controllers;
+namespace app\src\controllers;
 
-use app\core\controller;
+use app\src\core\controller;
 
-class Test extends Controller
+class TestController extends Controller
 {
 
     public function index(){
         $model = "test";
         $this->loadModel($model);
-        $tests = $this->$model->getOne();
+        $tests = $this->$model->getAll();
         
         echo '<pre>';
         var_dump($tests);

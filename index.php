@@ -1,6 +1,6 @@
 <?php
 
-use app\controllers\Main;
+use app\src\controllers\MainController;
 
 require_once __DIR__.'/vendor/autoload.php';
 
@@ -11,7 +11,7 @@ if($params[0] !== ""){
     $controller = ucfirst($params[0]);
     $action = $params[1] ?? 'index'; // sauvegarde le deuxième parametre s'il existe sinon index
 
-    $controllerNameSpace = "\app\controllers\\". $controller;
+    $controllerNameSpace = "\app\src\controllers\\". $controller."Controller";
 
     if(method_exists($controllerNameSpace, $action)){
         $controller = new $controllerNameSpace();
@@ -22,6 +22,6 @@ if($params[0] !== ""){
         echo "La page recherchée n'existe pas";
     }
 } else {
-    $controller = new Main();
+    $controller = new MainController();
     $controller->index();
 }

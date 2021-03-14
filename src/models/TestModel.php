@@ -1,12 +1,12 @@
 <?php
 
 
-namespace app\models;
+namespace app\src\models;
 
 
-use app\core\Model;
+use app\src\core\Model;
 
-class Test extends Model
+class TestModel extends Model
 {
 
     /**
