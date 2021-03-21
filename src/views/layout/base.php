@@ -5,15 +5,14 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="<?= ROOT ?>assets/css/style.css" rel="stylsheet">
+    <link href="//localhost/../../../assets/css/style.css" rel="stylesheet">
     <title>Document</title>
 </head>
-<body>
+<body id="page-container">
     <nav></nav>
-    <main>
+    <main id="content-wrap">
         <?= /** @var string $content */ $content ?>
     </main>
-
-    <footer></footer>
+    <footer id="footer"></footer>
 </body>
 </html>
