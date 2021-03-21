@@ -44,8 +44,6 @@ abstract class Model
         }
     }
 
-        
-       
     /**
      * Permet d'avoir une occurence d'une table grâce à son id
      *
@@ -58,8 +56,7 @@ abstract class Model
         $query = $this->connection->query($sql);
         return $query->fetch();
     }
-
-        
+  
     /**
      * Permet d'avoir toutes les occurences d'une table
      *
@@ -73,7 +70,7 @@ abstract class Model
     }
     
     /**
-     * Permet d'avoir une occurence 
+     * Permet d'avoir l'occurence d'une table par rapport à son slug
      *
      * @param  mixed $slug
      * @return mixed
