@@ -4,15 +4,29 @@ namespace app\src\controllers;
 
 use app\src\core\controller;
 
+/**
+ * CoursController
+ */
 class CoursController extends Controller
 {
+
     public function index(){
-        /*
-        $model = "cours"; //nom du modèle
-        $this->loadModel($model); //charge le modèle
-        $tests = $this->$model->getAll(); //récupère toutes les données de la table "test"*/
+    $this->render('cours', 'index', []);
+        /*$this->loadModel($model);
+        $tests = $this->$model->getAll();
+        
+        $this->render('cours', 'index', [
+            'courses' => $courses,
+        ]);*/
+    }
 
+    public function voir(string $slug){
+        $model = "cours";
+        /*$this->loadModel($model);
+        $courses = $this->$model->findBySlug($slug);
 
-        $this->render('cours', 'index', []);
+        $this->render('cours', 'voir', [
+            'courses' => $courses,
+        ]);*/
     }
 }
