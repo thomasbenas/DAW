@@ -1,0 +1,59 @@
+#pageCours{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.listeOutilsCours{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: yellow;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 500px;
+    height: 40px;
+    
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+}
+.outilsCours{
+    background-color: #8ECAE6;
+    color : white;
+
+    height: 40px;
+    width: 100px;
+    
+    border: none;
+}
+.cours{
+    background-color: green;
+
+    height: 200px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+.descCours{
+    background-color: blueviolet;
+    text-align: left;
+    width:69%;
+    height: 100%;
+}
+.imageCours{
+    width: 30%;
+    height: 100%;
+    border-radius: 5%;
+}
+
