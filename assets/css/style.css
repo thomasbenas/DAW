@@ -4,3 +4,18 @@
     --secondary-color: #8ECAE6;
     --tertiary-color: #219EBC;
 }
+
+body{
+    margin: 0;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.page-footer{
+    height: 1.5rem;
+    background-color: var(--main-color-light);
+}

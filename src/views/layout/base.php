@@ -8,11 +8,17 @@
     <link href="//localhost/../../../assets/css/style.css" rel="stylesheet">
     <title>Document</title>
 </head>
-<body id="page-container">
-    <nav></nav>
-    <main id="content-wrap">
-        <?= /** @var string $content */ $content ?>
-    </main>
-    <footer id="footer"></footer>
+<body>
+    <div class="wrapper">
+        <header class="page-header">This is the header</header>
+        <article class="page-body">
+            <?= /** @var string $content */ $content ?>
+        </article>
+        <footer class="page-footer">Sticky footer</footer>
+    </div>
 </body>
 </html>
+
+
+
+
