@@ -4,6 +4,9 @@ namespace app\src\controllers;
 
 use app\src\core\controller;
 
+/**
+ * TestController
+ */
 class TestController extends Controller
 {
 
