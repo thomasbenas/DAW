@@ -1,5 +1,5 @@
 <div class="page-nav">
-    <div class="page-nav-title">closedClassroom</div>
+    <div class="page-nav-title">ClosedClassroom</div>
     <div class="page-nav-block">
         <div class="page-nav-item"><a href="#">QCM</a></div>
         <div class="page-nav-item"><a href="#">Cours</a></div>
@@ -12,5 +12,3 @@
         <?php endif ?>
     </div>
 </div>
-
-<span>Les salles de classes sont fermées... pas nous !</span>
