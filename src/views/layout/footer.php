@@ -1,0 +1,1 @@
+<footer class="page-footer"> Groupe 1 DAW - Mentions légales</footer>
