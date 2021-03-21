@@ -14,8 +14,12 @@ abstract class Model
     protected \PDO $connection;
 
     public string $table;
-    public string $id;
-
+    
+    /**
+     * __construct
+     *
+     * @return void
+     */
     public function __construct()
     {
         (new DotEnv('.env'))->load();
@@ -24,7 +28,12 @@ abstract class Model
         $this->username = getenv('database_user');
         $this->password = getenv('database_password');
     }
-
+    
+    /**
+     * Permet de se connecter à la BDD
+     *
+     * @return void
+     */
     public function connection() : void
     {
         try {
@@ -35,20 +44,37 @@ abstract class Model
         }
     }
 
-    public function getOne() : mixed
+    /**
+     * Permet d'avoir une occurence d'une table grâce à son id
+     *
+     * @param  mixed $id 
+     * @return mixed
+     */
+    public function getOne($id) : mixed
     {
-        $sql = "SELECT * FROM " . $this->table . " WHERE id=".$this->id;
+        $sql = "SELECT * FROM " . $this->table . " WHERE id=".$id;
         $query = $this->connection->query($sql);
         return $query->fetch();
     }
-
+  
+    /**
+     * Permet d'avoir toutes les occurences d'une table
+     *
+     * @return mixed
+     */
     public function getAll() : mixed
     {
         $sql = "SELECT * FROM " . $this->table;
         $query = $this->connection->query($sql);
         return $query->fetchAll();
     }
-
+    
+    /**
+     * Permet d'avoir l'occurence d'une table par rapport à son slug
+     *
+     * @param  mixed $slug
+     * @return mixed
+     */
     public function findBySlug(string $slug) : mixed
     {
         $sql = "SELECT * FROM ".$this->table." WHERE `slug`='".$slug."'";

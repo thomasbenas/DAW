@@ -4,9 +4,19 @@ namespace app\src\core;
 
 use app\src\models;
 
+/**
+ * Représente un Controller 
+ */
 abstract class Controller
 {
 
+    
+    /**
+     * loadModel permet de charger un modèle de données
+     *
+     * @param  mixed $model le modèle à charger
+     * @return void
+     */
     public function loadModel(string $model) :void
     {
         $modelNameSpace = "\app\src\models\\". $model."Model";
