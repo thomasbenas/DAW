@@ -16,6 +16,7 @@
                 <p>Description du cours</p>         <!--<h2></*?= $cours['desc'] ?></h2> -->
             </div>
         </div>
+    </div>
         <!--</*?php endforeach ?> -->
     </div>
 </div>
