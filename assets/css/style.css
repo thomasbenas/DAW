@@ -102,7 +102,7 @@ a:hover{
     align-items: center;
 }
 
-.list:nth-child(2){
+.list:nth-child(2n){
     flex-direction: row-reverse;
     justify-content: space-around;
 }
