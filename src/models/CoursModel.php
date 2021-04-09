@@ -24,7 +24,7 @@ class CoursModel extends Model
 	* @param string $name
 	* @return int
 	*/
-	public function getCategorieIdD(string $name) : int
+	public function GetCategorieIdD(string $name) : int
 	{
 		$sql = "SELECT `id` FROM `categories` WHERE `name` = '".$name."'";
 		$query = $this->connection->query($sql);
@@ -37,7 +37,7 @@ class CoursModel extends Model
 	* @param string $name
 	* @return int
 	*/
-	public function getDifficulteID(string $name) : int
+	public function GetDifficulteID(string $name) : int
 	{
 		$sql = "SELECT `id` FROM `difficulties` WHERE `name` = '".$name."'";
 		$query = $this->connection->query($sql);
@@ -50,7 +50,7 @@ class CoursModel extends Model
 	* @param  int $user
 	* @param  int $lesson
 	*/
-	public function ajoutCoursSuivis(int $user, int $lesson)
+	public function AjoutCoursSuivis(int $user, int $lesson)
 	{
 	    $sql = "INSERT INTO `lessons_taken` (`user`, `lesson`, `date_start`, `status`)
 				VALUES (':user', ':lesson', now(), '1');";
@@ -67,7 +67,7 @@ class CoursModel extends Model
 	* @param int $chapitrePrecedent
 	* @return string
 	*/
-	public function getContenuChapitreSuivant(int $lesson, int $chapitrePrecedent) : string
+	public function GetContenuChapitreSuivant(int $lesson, int $chapitrePrecedent) : string
 	{
 		$sql = "SELECT `content`, `lesson`, `ch_number` FROM `chapters` 
 				WHERE `lesson` = '".$lesson."' AND `ch_number` = '".$chapitrePrecedent."+1'";
