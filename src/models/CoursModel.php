@@ -57,6 +57,7 @@ class CoursModel extends Model
 		$stmt = $this->connection->prepare($sql);
 		$stmt->bindParam(':user',$user);
 		$stmt->bindParam(':lesson',$lesson);
+		$stmt->execute();
 	}
 
 	/**
