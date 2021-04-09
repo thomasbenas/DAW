@@ -23,7 +23,7 @@ class UserModel extends Model
 	* @param  string $password
 	* @return string
 	*/
-	public function hashPassword (string $password) : string
+	public function HashPassword (string $password) : string
 	{
 		return crypt($password, 'ae')
 	}
@@ -35,7 +35,7 @@ class UserModel extends Model
 	* @param int $id
 	* @return bool
 	*/
-	public function checkPassword(string $password, int $id) : bool
+	public function CheckPassword(string $password, int $id) : bool
 	{
 		$sql = "SELECT `password`, `id` FROM `users` WHERE `id` = '".$id."'";
 		$query = $this->connection->query($sql);
@@ -57,9 +57,9 @@ class UserModel extends Model
 	* @param  int $month
 	* @param  int $day
 	*/
-	public function inscription(string $pseudo, string $password, string $mail, int $year, int $month, int $day)
+	public function Inscription(string $pseudo, string $password, string $mail, int $year, int $month, int $day)
 	{
-		$hashedpassword = hashPassword($password);
+		$hashedpassword = HashPassword($password);
 		$birth = $year."-".$month."-".$day;
 	    $sql = "INSERT INTO `users` (`username`, `password`, `mail`, `date_registration`, `date_birth`, `biography`)
 				VALUES (':pseudo', ':hashedpassword', ':mail', now(), ':birth', NULL);";
@@ -77,7 +77,7 @@ class UserModel extends Model
 	* @param string $desc
 	* @param int $id
 	*/
-	public function modifBiographie(string $desc, int $id)
+	public function ModifBiographie(string $desc, int $id)
 	{
 		$sql = "UPDATE `users` SET
 				`biography` = ':desc'
@@ -93,9 +93,9 @@ class UserModel extends Model
 	* @param string $password
 	* @param int $id
 	*/
-	public function modifMotDePasse(string $password, int $id)
+	public function ModifMotDePasse(string $password, int $id)
 	{
-		$hashedpassword = hashPassword($password);
+		$hashedpassword = HashPassword($password);
 		$sql = "UPDATE `users` SET
 				`password` = ':hashedpassword'
 				WHERE ((`id` = '".$id."'));";
