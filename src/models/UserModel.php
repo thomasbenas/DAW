@@ -68,6 +68,7 @@ class UserModel extends Model
 		$stmt->bindParam(':hashedpassword',$hashedpassword);
 		$stmt->bindParam(':mail',$mail);
 		$stmt->bindParam(':birth',$birth);
+		$stmt->execute();
 	}
 
 	/**
@@ -83,6 +84,7 @@ class UserModel extends Model
 				WHERE ((`id` = '".$id."'));";
 		$stmt = $this->connection->prepare($sql);
 		$stmt->bindParam(':desc',$desc);
+		$stmt->execute();
 	}
 
 	/**
@@ -99,6 +101,7 @@ class UserModel extends Model
 				WHERE ((`id` = '".$id."'));";
 		$stmt = $this->connection->prepare($sql);
 		$stmt->bindParam(':hashedpassword',$hashedpassword);
+		$stmt->execute();
 	}
 }
 
