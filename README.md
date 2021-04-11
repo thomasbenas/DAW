@@ -11,7 +11,7 @@ Projet L3 Développement d'applications web
 * Démarrer votre serveur Apache
 * Créer un fichier `.env` en se basant sur `example.env` avec **vos** informations de connexion
 * Dans un terminal à la racine du projet faire un `composer update`
-* Rendez-vous sur `localhost` ou `localhost/DAW
+* Rendez-vous sur `localhost/DAW`
 * `localhost\test` devrait vous afficher un jeu de données issu de la table Test de la base de données
 * *It just Work !*
 
