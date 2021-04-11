@@ -18,7 +18,8 @@ Projet L3 Développement d'applications web
 ## Fonctionalités 
 
 * Réécriture d'URL
-* Architecture MVC 
+* Architecture MVC
+* Gestion des erreurs (page 404)
 
 ## Ressources 
 
