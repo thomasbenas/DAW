@@ -4,6 +4,7 @@ use app\src\controllers\MainController;
 
 require_once __DIR__.'/vendor/autoload.php'; // autoload des classes et méthodes avec composer
 define('ROOT', str_replace('index.php','',$_SERVER['SCRIPT_FILENAME'])); // définit le chemin racine où se trouve la solution
+define('FOLDER_ROOT', basename(__DIR__));
 
 // On sèpare les paramètres et on les dans le tableau $params
 $params = explode('/', $_GET['p']);
