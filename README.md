@@ -9,7 +9,7 @@ Projet L3 Développement d'applications web
 ## Quick start 
 
 * Démarrer votre serveur Apache
-* Modifier le `.env` avec **vos** informations de connexion
+* Créer un fichier `.env` en se basant sur `example.env` avec **vos** informations de connexion
 * Dans un terminal à la racine du projet faire un `composer update`
 * Rendez-vous sur `localhost` ou `localhost\[dossierProjet]`
 * `localhost\test` devrait vous afficher un jeu de données issu de la table Test de la base de données
@@ -19,3 +19,8 @@ Projet L3 Développement d'applications web
 
 * Réécriture d'URL
 * Architecture MVC 
+
+## Ressources 
+
+* https://nouvelle-techno.fr/actualites/live-coding-introduction-au-mvc-en-php
+* https://github.com/devcoder-xyz/php-dotenv
