@@ -30,6 +30,11 @@ a:hover{
     color: var(--secondary-color);
 }
 
+img{
+    width: 100%;
+    object-fit: contain;
+}
+
 .catchphrase{
     font-weight: 700;
     font-size: 1.4em;
@@ -65,11 +70,13 @@ a:hover{
 
 .button{
     border: solid 3px var(--main-color-dark);
-    margin: 0 10px;
 }
 
 .button-fill{
     background-color: var(--main-color-dark);
+}
+
+.button-fill, .button{
     margin: 0 10px;
 }
 
@@ -109,9 +116,32 @@ a:hover{
 
 .list-img{
     height: 300px;
-    width: 100%;
-    object-fit: contain;
 }
+
+.error{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.error_text{
+    display: flex;
+    justify-content: center;
+}
+
+.error_text > span{
+    font-weight: 800;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.error_img{
+    height: 500px;
+    background-image: url("../images/error-404.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+}
+
 
 /* /// MENU /// */
 
