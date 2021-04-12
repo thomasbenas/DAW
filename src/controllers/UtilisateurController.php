@@ -9,4 +9,9 @@ use app\src\core\controller;
  */
 class UtilisateurController extends Controller
 {
+    public function connexion(){
+        $this->render('utilisateur', 'connexion', [
+            'utilisateur' => $this,
+        ]);
+    }
 }
