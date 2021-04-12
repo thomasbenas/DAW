@@ -98,6 +98,12 @@ img{
     color: var(--text-color-on-dark);
 }
 
+.buton-validate{
+    text-align: center;
+    border: 1px var(--main-color-dark) solid;
+    background-color: #e7e7e7;
+
+}
 .lists{
     display: flex;
     flex-direction: column;
