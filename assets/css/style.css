@@ -280,3 +280,7 @@ img{
 .connexion-inputs > input[type=submit]{
     text-align: center;
 }
+
+.connexion-inputs > input[type=submit]:hover{
+    color: var(--text-color-on-dark);
+}
