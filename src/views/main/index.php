@@ -6,15 +6,15 @@
         <p>Notre selection de cours pour vous</p>
 
         <div class="buttons">
-            <div class="button-fill">
+            <div class="button">
                 <div class="button-content"><a href="#">Un cours</a></div>
             </div>
 
-            <div class="button-fill">
+            <div class="button">
                 <div class="button-content"><a href="#">Un autre cours</a></div>
             </div>
 
-            <div class="button-fill">
+            <div class="button">
                 <div class="button-content"><a href="#">Encore un autre cours</a></div>
             </div>
         </div>
