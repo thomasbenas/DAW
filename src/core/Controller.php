@@ -9,7 +9,10 @@ use app\src\models;
  */
 abstract class Controller
 {
-
+    public function __construct(){
+       if(!isset($_SESSION))
+            session_start();
+    }
     
     /**
      * loadModel permet de charger un modèle de données
