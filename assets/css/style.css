@@ -68,8 +68,10 @@ img{
     justify-content: center;
 }
 
-.button{
-    border: solid 3px var(--main-color-dark);
+.button, .button-fill {
+   border: 0.5px solid var(--main-color-dark);
+   padding: 10px;
+
 }
 
 .button-fill{
@@ -80,22 +82,44 @@ img{
     margin: 0 10px;
 }
 
-.button-fill:hover > .button-content:hover{
-    background-color: var(--secondary-color);
+.button-fill:hover{
+    background-color: transparent;
 }
 
-.button:hover, .button:hover > a{
-    background-color: var(--main-color-dark);
-    color: var(--text-color-on-dark);
+
+.button:hover, .button-fill:hover{
     cursor: pointer;
+    transition-delay: 5ms;
+    transition-duration: 0.5s;
 }
 
-.button-content{
-    padding: 8px;
+.button:hover{
+    background-color: var(--main-color-dark);
 }
 
-.button-content > a{
+.button:hover > a, .button:hover > .button-content > a{
     color: var(--text-color-on-dark);
+}
+
+.button-fill:hover > a, .button-fill:hover > .button-content > a{
+    color: var(--main-color-dark);
+}
+
+.button-fill > .button-content > a, .button-fill > a{
+    color: var(--text-color-on-dark);
+}
+
+.mark{
+    margin: 0 -0.4em;
+    padding: 0.1em 0.4em;
+    border-radius: 0.8em 0.3em;
+    background: transparent;
+    background-image: linear-gradient(
+        to right,
+        rgba(255, 225, 0, 0.1),
+        rgba(255, 225, 0, 0.7) 4%,
+        rgba(255, 225, 0, 0.3)
+    );
 }
 
 .buton-validate{
@@ -104,6 +128,7 @@ img{
     background-color: #e7e7e7;
 
 }
+
 .lists{
     display: flex;
     flex-direction: column;
@@ -169,6 +194,7 @@ img{
 
 .page-nav-block{
     display: flex;
+    align-items: baseline;
 }
 
 .page-nav-block > .page-nav-item{

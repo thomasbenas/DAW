@@ -2,7 +2,6 @@
 
 use app\src\controllers\MainController;
 use app\src\controllers\ErrorController;
-use app\src\core\traits\getFullpath;
 
 require_once __DIR__.'/vendor/autoload.php'; // autoload des classes et méthodes avec composer
 define('ROOT', str_replace('index.php','',$_SERVER['SCRIPT_FILENAME'])); // définit le chemin racine où se trouve la solution
