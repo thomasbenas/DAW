@@ -219,14 +219,14 @@ img{
     font-size: 1.3rem;
 }
 
-/* /// CONNEXION /// */
-.connexion-panel{
+/* /// CONNEXION / INSCRIPTION /// */
+.panel{
    display: grid;
-   grid-template-columns: 900px 1fr;
+   grid-template-columns: 50% 50%;
    font-size: 1.4em;
 }
 
-.connexion-aside{
+.aside{
     background-color: var(--tertiary-color);
     height: 100vh;
     display: flex;
@@ -234,18 +234,18 @@ img{
     justify-content: center;
 }
 
-.connexion-aside > img{
+.aside > img{
     height: 600px;
 }
 
-.connexion-aside > span{
+.aside > span{
     color: var(--text-color-on-dark);
     text-align: center;
     font-weight: 800;
     font-size: 1.4em;
 }
 
-.connexion-form{
+.form{
     background-color: var(--text-color-on-dark);
     display: flex;
     flex-direction: column;
@@ -253,21 +253,21 @@ img{
     align-items: center;
 }
 
-.connexion-head{
+.form-head{
     text-align: center;
 }
 
-.connexion-head > img{
+.form-head > img{
     height: 300px;
 }
 
-.connexion-inputs{
+.form-inputs{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.connexion-inputs > input{
+.form-inputs > input, .form-inputs > div > input{
     width: 400px;
     height: 60px;
     font-size: 0.8em;
@@ -275,12 +275,21 @@ img{
     border: 1px var(--main-color-dark) solid;
     border-radius: 6px;
     margin: 12px 0;
+    outline:  none;
 }
 
-.connexion-inputs > input[type=submit]{
+.form-inputs > input:focus{
+    border: 2px var(--tertiary-color) solid;
+}
+
+.form-inputs > input[type=submit]{
     text-align: center;
 }
 
-.connexion-inputs > input[type=submit]:hover{
+.inputs > input[type=submit]:hover{
     color: var(--text-color-on-dark);
+}
+
+#message_password{
+    font-size: 0.7em;
 }
