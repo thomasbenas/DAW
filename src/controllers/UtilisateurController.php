@@ -26,4 +26,12 @@ class UtilisateurController extends Controller
         $this->loadModel($model);
         $this->$model->Inscription($pseudo, $password, $mail);
     }
+
+    //TODO
+    /**
+     * UserConnexion($pseudo, $password)
+     * Vérifier les doublons, gestion des exceptions, etc...
+     * htmlspecialchars
+     */
+
 }
