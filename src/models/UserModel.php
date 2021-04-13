@@ -25,7 +25,7 @@ class UserModel extends Model
 	*/
 	public function HashPassword (string $password) : string
 	{
-		return crypt($password, 'ae')
+		return crypt($password, 'ae');
 	}
 
 	/**
