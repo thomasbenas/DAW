@@ -13,6 +13,7 @@
         </article>
         <?php require_once(ROOT.'src/views/layout/footer.php') ?>
     </div>
+    <script src="//<?= HOST . '/' . FOLDER_ROOT ?>/assets/js/app.js"></script>
 </body>
 </html>
 
