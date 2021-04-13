@@ -14,4 +14,10 @@ class UtilisateurController extends Controller
             'utilisateur' => $this,
         ]);
     }
+
+    public function rejoindre(){
+        $this->render('utilisateur', 'rejoindre', [
+            'utilisateur' => $this,
+        ]);
+    }
 }
