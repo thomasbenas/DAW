@@ -20,4 +20,10 @@ class UtilisateurController extends Controller
             'utilisateur' => $this,
         ]);
     }
+
+    public function UserRegistration($pseudo, $password, $mail){
+        $model = "user";
+        $this->loadModel($model);
+        $this->$model->Inscription($pseudo, $password, $mail);
+    }
 }
