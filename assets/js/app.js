@@ -1,5 +1,5 @@
 var checkPassword = function() {
-    $message = 'Les deux mots de passe ne correspondent pas.'
+    $message = '<i class="far fa-times-circle"></i> Les deux mots de passe ne correspondent pas.'
     $isDisaled = true;
 
     if (document.getElementById('password').value == document.getElementById('password_confirm').value){
