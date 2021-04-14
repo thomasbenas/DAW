@@ -9,6 +9,7 @@
             <div class="button"><a href="//<?= HOST . '/' .FOLDER_ROOT ?>/utilisateur/connexion">CONNEXION</a></div>
         <?php else: ?>
             <div class="page-nav-item button-img"><a href="#">Profil</a></div>
+            <div class="button-fill"><a href="#">Profil de <?= $_SESSION['username'] ?></a></div>
         <?php endif ?>
     </div>
 </div>
