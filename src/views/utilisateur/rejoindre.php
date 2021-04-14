@@ -6,12 +6,11 @@
     <div class="form">
         <?php if(!empty($_POST['userName']) && !empty($_POST['userPassword'])): ?>
             <?php require_once(ROOT.'src/views/utilisateur/rejoindreAction.php') ?>
-        <?php else: ?>
-            <div class="form-head">
-                <h3>Rejoindre</h3>
-                <img src="../assets/images/blog.svg" alt="">
-            </div>
-            <?php require_once(ROOT.'src/views/utilisateur/rejoindreForm.php') ?>
         <?php endif; ?>
+        <div class="form-head">
+            <h3>Rejoindre</h3>
+            <img src="../assets/images/blog.svg" alt="">
+        </div>
+        <?php require_once(ROOT.'src/views/utilisateur/rejoindreForm.php') ?>  
     </div>
 </div>
