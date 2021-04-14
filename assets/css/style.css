@@ -316,7 +316,7 @@ img{
     color: var(--text-color-on-dark);
 }
 
-#message_password{
-    font-size: 0.7em;
+.error_message{
     color: rgba(175, 0, 0, 0.6);
+    font-size: 0.7em;
 }
