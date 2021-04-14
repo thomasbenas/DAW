@@ -9,6 +9,13 @@ use app\src\core\Model;
  */
 class UserModel extends Model
 {
+	private $id;
+	private $username;
+	private $password;
+	private $mail;
+	private $date_registration;
+	private $date_birth;
+	private $biography;
 
     public function __construct()
     {
@@ -77,10 +84,132 @@ class UserModel extends Model
         $query = $this->connection->query($sql);
         return $query->fetch(\PDO::FETCH_ASSOC);
 	}
+
+	
+	/**
+	 * Get the value of biography
+	 */
+	public function getBiography()
+	{
+		return $this->biography;
 	}
 
 	/**
+	 * Set the value of biography
+	 */
+	public function setBiography($biography) : self
 	{
+		$this->biography = $biography;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of date_birth
+	 */
+	public function getDate_Birth()
+	{
+		return $this->date_birth;
+	}
+
+	/**
+	 * Set the value of date_birth
+	 */
+	public function setDate_Birth($date_birth) : self
+	{
+		$this->date_birth = $date_birth;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of date_registration
+	 */
+	public function getDate_Registration()
+	{
+		return $this->date_registration;
+	}
+
+	/**
+	 * Set the value of date_registration
+	 */
+	public function setDate_Registration($date_registration) : self
+	{
+		$this->date_registration = $date_registration;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of mail
+	 */
+	public function getMail()
+	{
+		return $this->mail;
+	}
+
+	/**
+	 * Set the value of mail
+	 */
+	public function setMail($mail) : self
+	{
+		$this->mail = $mail;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of password
+	 */
+	public function getPassword()
+	{
+		return $this->password;
+	}
+
+	/**
+	 * Set the value of password
+	 */
+	public function setPassword($password) : self
+	{
+		$this->password = $password;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of username
+	 */
+	public function getUsername()
+	{
+		return $this->username;
+	}
+
+	/**
+	 * Set the value of username
+	 */
+	public function setUsername($username) : self
+	{
+		$this->username = $username;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of id
+	 */
+	public function getId()
+	{
+		return $this->id;
+	}
+
+	/**
+	 * Set the value of id
+	 */
+	public function setId($id) : self
+	{
+		$this->id = $id;
+
+		return $this;
 	}
 }
 
