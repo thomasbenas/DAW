@@ -10,13 +10,12 @@ use app\src\core\Model;
 class CoursModel extends Model
 {
 
-    public function __construct()
-    {
-        parent::__construct();
-	$this->table = "lessons";
-        $this->connection();
-    }
-    
+	public function __construct()
+	{
+		parent::__construct();
+		$this->table = "lessons";
+		$this->connection();
+	}
 
 	/**
 	* Recuperation de l'id de la catégorie avec le nom
@@ -26,9 +25,11 @@ class CoursModel extends Model
 	*/
 	public function GetCategorieIdD(string $name) : int
 	{
-		$sql = "SELECT `id` FROM `categories` WHERE `name` = '".$name."'";
-		$query = $this->connection->query($sql);
-		return $query->fetch(\PDO::FETCH_ASSOC);
+		$Sql = 'SELECT id FROM categories WHERE name = :name;';
+		$Request = $this->connection->prepare($Sql);
+		$Request->bindParam(':name', $name);
+		$Request->execute();
+		return $Request->fetch(\PDO::FETCH_ASSOC);
 	}
 
 	/**
@@ -39,9 +40,11 @@ class CoursModel extends Model
 	*/
 	public function GetDifficulteID(string $name) : int
 	{
-		$sql = "SELECT `id` FROM `difficulties` WHERE `name` = '".$name."'";
-		$query = $this->connection->query($sql);
-		return $query->fetch(\PDO::FETCH_ASSOC);
+		$Sql = 'SELECT id FROM difficulties WHERE name = :name;';
+		$Request = $this->connection->prepare($Sql);
+		$Request->bindParam(':name', $name);
+		$Request->execute();
+		return $Request->fetch(\PDO::FETCH_ASSOC);
 	}
 
 	/**
@@ -52,12 +55,12 @@ class CoursModel extends Model
 	*/
 	public function AjoutCoursSuivis(int $user, int $lesson)
 	{
-	    $sql = "INSERT INTO `lessons_taken` (`user`, `lesson`, `date_start`, `status`)
-				VALUES (':user', ':lesson', now(), '1');";
-		$stmt = $this->connection->prepare($sql);
-		$stmt->bindParam(':user',$user);
-		$stmt->bindParam(':lesson',$lesson);
-		$stmt->execute();
+		$Sql = 'INSERT INTO lessons_taken (user, lesson, date_start)
+				VALUES (:user, :lesson, now());';
+		$Request = $this->connection->prepare($Sql);
+		$Request->bindParam(':user', $user);
+		$Request->bindParam(':lesson', $lesson);
+		$Request->execute();
 	}
 
 	/**
@@ -69,11 +72,13 @@ class CoursModel extends Model
 	*/
 	public function GetContenuChapitreSuivant(int $lesson, int $chapitrePrecedent) : string
 	{
-		$sql = "SELECT `content`, `lesson`, `ch_number` FROM `chapters` 
-				WHERE `lesson` = '".$lesson."' AND `ch_number` = '".$chapitrePrecedent."+1'";
-		$query = $this->connection->query($sql);
-		return $query->fetch(\PDO::FETCH_ASSOC);
+		$NextChapter = $chapitrePrecedent + 1;
+		$Sql = 'SELECT content,lesson,ch_number FROM chapters
+				WHERE lesson = :lesson AND ch_number = :next;';
+		$Request = $this->connection->prepare($Sql);
+		$Request->bindParam(':lesson', $lesson);
+		$Request->bindParam(':next', $NextChapter);
+		$Request->execute();
+		return $Request->fetch(\PDO::FETCH_ASSOC);
 	}
 }
-
-?>
