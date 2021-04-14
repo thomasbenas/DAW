@@ -10,13 +10,13 @@ use app\src\core\Model;
 class UserModel extends Model
 {
 
-    public function __construct()
-    {
-        parent::__construct();
-        $this->table = "test";
-        $this->connection();
-    }
-    
+	public function __construct()
+	{
+		parent::__construct();
+		$this->table = 'users';
+		$this->connection();
+	}
+
 	/**
 	* Hashe le mot de passe que l'utilisateur donne
 	*
@@ -25,7 +25,7 @@ class UserModel extends Model
 	*/
 	public function HashPassword (string $password) : string
 	{
-		return crypt($password, 'ae')
+		return crypt($password, 'ae');
 	}
 
 	/**
@@ -37,12 +37,14 @@ class UserModel extends Model
 	*/
 	public function CheckPassword(string $password, int $id) : bool
 	{
-		$sql = "SELECT `password`, `id` FROM `users` WHERE `id` = '".$id."'";
-		$query = $this->connection->query($sql);
-		$truepassword = $query->fetch(\PDO::FETCH_ASSOC);
-		if (hash_equals($truepassword, crypt($password, 'ae'))){
+		$Sql = 'SELECT password,id FROM users WHERE id = :id;';
+		$Request = $this->connection->prepare($Sql);
+		$Request->bindParam(':id', $id);
+		$Request->execute();
+		$Result = $Request->fetch(\PDO::FETCH_ASSOC);
+		if (hash_equals($Result['password'], crypt($password, 'ae'))){
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
@@ -59,16 +61,16 @@ class UserModel extends Model
 	*/
 	public function Inscription(string $pseudo, string $password, string $mail, int $year, int $month, int $day)
 	{
-		$hashedpassword = HashPassword($password);
-		$birth = $year."-".$month."-".$day;
-	    $sql = "INSERT INTO `users` (`username`, `password`, `mail`, `date_registration`, `date_birth`, `biography`)
-				VALUES (':pseudo', ':hashedpassword', ':mail', now(), ':birth', NULL);";
-		$stmt = $this->connection->prepare($sql);
-		$stmt->bindParam(':pseudo',$pseudo);
-		$stmt->bindParam(':hashedpassword',$hashedpassword);
-		$stmt->bindParam(':mail',$mail);
-		$stmt->bindParam(':birth',$birth);
-		$stmt->execute();
+		$HashedPassword = $this->HashPassword($password);
+		$Birth = $year . '-' . $month . '-' . $day;
+		$Sql = 'INSERT INTO users (username, password, mail, date_registration, date_birth, biography)
+				VALUES (:pseudo, :hashedpassword, :mail, now(), :birth, NULL);';
+		$Request = $this->connection->prepare($Sql);
+		$Request->bindParam(':pseudo', $pseudo);
+		$Request->bindParam(':hashedpassword', $HashedPassword);
+		$Request->bindParam(':mail', $mail);
+		$Request->bindParam(':birth', $Birth);
+		$Request->execute();
 	}
 
 	/**
@@ -79,12 +81,13 @@ class UserModel extends Model
 	*/
 	public function ModifBiographie(string $desc, int $id)
 	{
-		$sql = "UPDATE `users` SET
-				`biography` = ':desc'
-				WHERE ((`id` = '".$id."'));";
-		$stmt = $this->connection->prepare($sql);
-		$stmt->bindParam(':desc',$desc);
-		$stmt->execute();
+		$Sql = 'UPDATE users
+				SET biography = :desc
+				WHERE id = :id;';
+		$Request = $this->connection->prepare($Sql);
+		$Request->bindParam(':desc',$desc);
+		$Request->bindParam(':id', $id);
+		$Request->execute();
 	}
 
 	/**
@@ -95,14 +98,13 @@ class UserModel extends Model
 	*/
 	public function ModifMotDePasse(string $password, int $id)
 	{
-		$hashedpassword = HashPassword($password);
-		$sql = "UPDATE `users` SET
-				`password` = ':hashedpassword'
-				WHERE ((`id` = '".$id."'));";
-		$stmt = $this->connection->prepare($sql);
-		$stmt->bindParam(':hashedpassword',$hashedpassword);
-		$stmt->execute();
+		$hashedpassword = $this->HashPassword($password);
+		$Sql = 'UPDATE users SET
+				password = :hashedpassword
+				WHERE id = :id;';
+		$Request = $this->connection->prepare($Sql);
+		$Request->bindParam(':hashedpassword',$hashedpassword);
+		$Request->bindParam(':id', $id);
+		$Request->execute();
 	}
 }
-
-?>
