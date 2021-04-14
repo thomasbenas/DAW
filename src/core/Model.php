@@ -29,6 +29,18 @@ abstract class Model
         $this->password = getenv('database_password');
     }
     
+    public function hydrate(array $data)
+    {
+        foreach ($data as $key => $value)
+        {
+            $method = 'set'.ucfirst($key); 
+            if (method_exists($this, $method))
+            {
+                $this->$method($value);
+            }
+        }
+    }
+
     /**
      * Permet de se connecter à la BDD
      *
@@ -80,6 +92,7 @@ abstract class Model
         $sql = "SELECT * FROM ".$this->table." WHERE `slug`='".$slug."'";
         $query = $this->connection->query($sql);
         return $query->fetch(\PDO::FETCH_ASSOC);
+        var_dump($query->fetch(\PDO::FETCH_ASSOC));
     }
 
 }
