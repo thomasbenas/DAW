@@ -21,10 +21,15 @@ class UtilisateurController extends Controller
         ]);
     }
 
-    public function UserRegistration($pseudo, $password, $mail){
+    public function UserRegistration($username, $password, $mail){
         $model = "user";
         $this->loadModel($model);
-        $this->$model->Inscription($pseudo, $password, $mail);
+        try {
+            $this->$model->Inscription($username, $password, $mail);
+        } catch (\PDOException  $e) {
+            $_GET['error'] = "Le nom d'utilisateur ou le mail est déjà utilisé.";
+        }
+    }
     private function UserSetup($model, $username){
         $this->loadModel($model);
         $userData = $this->$model->getUserByUsername($username);
