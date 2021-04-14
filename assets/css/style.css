@@ -35,14 +35,6 @@ img{
     object-fit: contain;
 }
 
-.catchphrase{
-    font-weight: 700;
-    font-size: 1.4em;
-    color: var(--main-color-dark);
-    text-align: center;
-   
-}
-
 .wrapper {
     min-height: 100vh;
     display: grid;
@@ -228,7 +220,6 @@ img{
 
 .connexion-aside{
     background-color: var(--tertiary-color);
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -279,4 +270,109 @@ img{
 
 .connexion-inputs > input[type=submit]{
     text-align: center;
+}
+
+.form-inputs > input[type=submit]:hover{
+    color: var(--text-color-on-dark);
+}
+
+.error_message{
+    color: rgba(175, 0, 0, 0.6);
+    font-size: 0.7em;
+}
+
+
+/* /// RESPONSIVE /// */
+
+@media (max-width: 1070px) {
+    .container{
+        padding: 20px 50px;
+    }
+
+    .aside{
+        padding: 30px;
+    }
+
+    .form{
+        padding: 30px;
+    }
+}
+
+@media (max-width: 890px) {
+    .page-header{
+        display: none;
+    }
+
+    .list-img{
+        height: 200px;
+    }
+
+    .panel{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .aside{
+        padding: 40px;
+        padding-bottom: 30px;
+        height: 100vh;
+    }
+
+    .form{
+       flex-direction: row;
+       justify-content: safe; 
+       padding: 40px;
+    }
+
+    .container{
+        padding: 20px 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .form{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .wrapper{
+        display: block;
+        min-height: none;
+    }
+
+    .presentation-index{
+        font-size: 0.8em;
+    }
+
+    .selection-cours > .buttons{
+        flex-direction: column;
+        margin: 0 40px;
+    }
+
+    .selection-cours > .buttons > .button{
+        margin: 8px 0;
+    }
+
+    .list{
+        display: block;
+    }
+
+    .form{
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .aside > span{
+        font-size: 1.2em;
+    }
+
+    .aside > img{
+        height: 400px;
+    }
+
+    .form-inputs > input, .form-inputs > div > input{
+        width: 250px;
+    }
 }
