@@ -25,6 +25,16 @@ class UtilisateurController extends Controller
         $model = "user";
         $this->loadModel($model);
         $this->$model->Inscription($pseudo, $password, $mail);
+    private function UserSetup($model, $username){
+        $this->loadModel($model);
+        $userData = $this->$model->getUserByUsername($username);
+        $this->$model->hydrate($userData);
+
+        foreach($userData as $key => $value)
+        {
+            $method = 'get'.ucfirst($key);
+            $_SESSION[$key] = $this->$model->$method();
+        }
     }
 
     //TODO
