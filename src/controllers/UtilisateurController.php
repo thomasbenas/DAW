@@ -26,10 +26,12 @@ class UtilisateurController extends Controller
         $this->loadModel($model);
         try {
             $this->$model->Inscription($username, $password, $mail);
+            $this->UserSetup($model, $username);
         } catch (\PDOException  $e) {
             $_GET['error'] = "Le nom d'utilisateur ou le mail est déjà utilisé.";
         }
     }
+
     private function UserSetup($model, $username){
         $this->loadModel($model);
         $userData = $this->$model->getUserByUsername($username);
