@@ -16,6 +16,7 @@ class UtilisateurController extends Controller
     }
 
     public function deconnexion(){
+        session_unset();
         $this->render('utilisateur', 'deconnexion', []);
     }
 
