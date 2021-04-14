@@ -312,7 +312,7 @@ img{
     text-align: center;
 }
 
-.inputs > input[type=submit]:hover{
+.form-inputs > input[type=submit]:hover{
     color: var(--text-color-on-dark);
 }
 
