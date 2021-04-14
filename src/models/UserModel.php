@@ -78,6 +78,10 @@ class UserModel extends Model
 	}
 
 	/**
+	 * Récupére toutes les informations d'un utilisateurs à partir de son nom
+	 * 
+	 * @param string $username
+	 */
 	public function getUserByUsername($username)
 	{
 		$sql = "SELECT * FROM users WHERE `username`='".$username."'";
