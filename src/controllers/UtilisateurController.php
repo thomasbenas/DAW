@@ -48,12 +48,7 @@ class UtilisateurController extends Controller
         }
     }
 
-    //TODO
     /**
-     * UserConnexion($pseudo, $password)
-     * Vérifier les doublons, gestion des exceptions, etc...
-     * htmlspecialchars
-     */
 	* retourne le hash d'une chaîne de caractère
 	*
 	* @param  string $password
