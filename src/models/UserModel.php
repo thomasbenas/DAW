@@ -58,13 +58,6 @@ class UserModel extends Model
         return $query->fetch(\PDO::FETCH_ASSOC);
 	}
 
-	public function getPasswordByid($id){
-		$sql = "SELECT password FROM users WHERE `id`= ".$id;
-		$query = $this->connection->query($sql);
-		$truepassword = $query->fetch(\PDO::FETCH_ASSOC);
-	}
-
-	
 	/**
 	 * Get the value of biography
 	 */
