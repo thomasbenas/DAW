@@ -34,14 +34,13 @@ class UserModel extends Model
 	* @param  int $month
 	* @param  int $day
 	*/
-	public function Inscription(string $pseudo, string $password, string $mail)
+	public function inscription(string $pseudo, string $password, string $mail)
 	{
-		$hashedpassword = $this->HashPassword($password);
 		$date = date("Y-m-d H:i:s");
-	    $sql = "INSERT INTO users VALUES(id, :pseudo, :hashedpassword, :mail, :date, NULL, NULL)";
+	    $sql = "INSERT INTO users VALUES(id, :pseudo, :password, :mail, :date, NULL, NULL)";
 		$stmt = $this->connection->prepare($sql);
 		$stmt->bindParam(':pseudo',$pseudo);
-		$stmt->bindParam(':hashedpassword',$hashedpassword);
+		$stmt->bindParam(':password',$password);
 		$stmt->bindParam(':mail', $mail);
 		$stmt->bindParam(':date', $date);
 		$stmt->execute();

@@ -27,19 +27,35 @@ class UtilisateurController extends Controller
     }
 
     public function userRegistration($username, $password, $mail){
+        $hashedPassword = $this->hashPassword($password);
         $model = "user";
         $this->loadModel($model);
         try {
-            $this->$model->Inscription($username, $password, $mail);
-            $this->UserSetup($model, $username);
+            $this->$model->inscription($username, $hashedPassword, $mail);
+            $userData = $this->$model->getUserByUsername($username);
+            $this->userSetup($model, $userData);
         } catch (\PDOException  $e) {
             $_GET['error'] = "Le nom d'utilisateur ou le mail est déjà utilisé.";
         }
     }
 
     public function userLogin($username, $password){
+        $model = "user";
         $this->loadModel($model);
         $userData = $this->$model->getUserByUsername($username);
+        try {
+            if(!empty($userData) && $userData['username'] == $username && $this->isHashEquals($userData['password'], $password))
+                $this->userSetup($model, $userData);
+            else 
+                $_GET['error'] = "Nom d'utilisateur ou mot de passe incorrect.";
+            
+        } catch (\PDOException  $e) {
+            print $e;
+        }
+    }
+
+    private function userSetup($model, $userData){
+        $this->loadModel($model);
         $this->$model->hydrate($userData);
 
         foreach($userData as $key => $value)
