@@ -1,7 +1,4 @@
 <div class="presentation-index">
-    <div class="catchphrase">
-        <span>Les salles de classe sont fermées... pas nous !</span>
-    </div>
     <div class="selection-cours">
         <p>Notre selection de cours pour vous</p>
 
