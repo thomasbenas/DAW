@@ -2,6 +2,6 @@
 
 <script>
     window.onload = function() {
-        LogoutMessage('<i class=\'fas fa-check\'></i> Déconnexion réussie')
+        LoginLogoutMessage('<i class=\'fas fa-check\'></i> Déconnexion réussie')
     };
 </script>
