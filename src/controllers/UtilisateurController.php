@@ -25,7 +25,7 @@ class UtilisateurController extends Controller
         ]);
     }
 
-    public function UserRegistration($username, $password, $mail){
+    public function userRegistration($username, $password, $mail){
         $model = "user";
         $this->loadModel($model);
         try {
@@ -36,7 +36,7 @@ class UtilisateurController extends Controller
         }
     }
 
-    private function UserSetup($model, $username){
+    public function userLogin($username, $password){
         $this->loadModel($model);
         $userData = $this->$model->getUserByUsername($username);
         $this->$model->hydrate($userData);

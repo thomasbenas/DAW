@@ -12,7 +12,7 @@ var checkPassword = function() {
    
 }
 
-function LogoutMessage(text){
+function LoginLogoutMessage(text){
    var x=document.getElementById("toast");
    x.classList.add("show");
    x.innerHTML=text;
