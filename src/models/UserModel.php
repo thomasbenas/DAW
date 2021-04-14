@@ -71,13 +71,12 @@ class UserModel extends Model
 	}
 
 	/**
+	public function getUserByUsername($username)
 	{
-		$sql = "UPDATE `users` SET
-				`biography` = ':desc'
-				WHERE ((`id` = '".$id."'));";
-		$stmt = $this->connection->prepare($sql);
-		$stmt->bindParam(':desc',$desc);
-		$stmt->execute();
+		$sql = "SELECT * FROM users WHERE `username`='".$username."'";
+        $query = $this->connection->query($sql);
+        return $query->fetch(\PDO::FETCH_ASSOC);
+	}
 	}
 
 	/**
