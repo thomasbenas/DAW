@@ -26,7 +26,7 @@
 			$Request = $this->connection->prepare($Sql);
 			$Request->bindParam(1, $id);
 			$Request->execute();
-			return $Request->fetch(PDO::FETCH_ASSOC);
+			return $Request->fetch(\PDO::FETCH_ASSOC);
 		}
 		/**
 	     * Récupère tous les sujets dans lesquels l'utilisateur est intervenu
@@ -48,7 +48,7 @@
 			$Request = $this->connection->prepare($Sql);
 			$Request->bindParam(':author', $user);
 			$Request->execute();
-			return $Request->fetchAll(PDO::FETCH_ASSOC);
+			return $Request->fetchAll(\PDO::FETCH_ASSOC);
 		}
 
 		/**
