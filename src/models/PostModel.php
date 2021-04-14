@@ -26,7 +26,7 @@
 			$Request = $this->connection->prepare($Sql);
 			$Request->bindParam(':author', $author);
 			$Request->execute();
-			return $Request->fetch(PDO::FETCH_ASSOC);
+			return $Request->fetch(\PDO::FETCH_ASSOC);
 		}
 		/**
 	     * Récupère tous les posts d'un sujet
@@ -40,7 +40,7 @@
 			$Request = $this->connection->prepare($Sql);
 			$Request->bindParam(':subject', $subject);
 			$Request->execute();
-			return $Request->fetchAll(PDO::FETCH_ASSOC);
+			return $Request->fetchAll(\PDO::FETCH_ASSOC);
 		}
 
 		/**
