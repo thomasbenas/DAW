@@ -71,12 +71,6 @@ class UserModel extends Model
 	}
 
 	/**
-	* Change la description de l'utilisateur
-	*
-	* @param string $desc
-	* @param int $id
-	*/
-	public function ModifBiographie(string $desc, int $id)
 	{
 		$sql = "UPDATE `users` SET
 				`biography` = ':desc'
@@ -87,20 +81,7 @@ class UserModel extends Model
 	}
 
 	/**
-	* Change le mot de passe de l'utilisateur
-	*
-	* @param string $password
-	* @param int $id
-	*/
-	public function ModifMotDePasse(string $password, int $id)
 	{
-		$hashedpassword = HashPassword($password);
-		$sql = "UPDATE `users` SET
-				`password` = ':hashedpassword'
-				WHERE ((`id` = '".$id."'));";
-		$stmt = $this->connection->prepare($sql);
-		$stmt->bindParam(':hashedpassword',$hashedpassword);
-		$stmt->execute();
 	}
 }
 
