@@ -15,6 +15,10 @@ class UtilisateurController extends Controller
         ]);
     }
 
+    public function deconnexion(){
+        $this->render('utilisateur', 'deconnexion', []);
+    }
+
     public function rejoindre(){
         $this->render('utilisateur', 'rejoindre', [
             'utilisateur' => $this,

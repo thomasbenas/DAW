@@ -10,4 +10,15 @@ var checkPassword = function() {
     document.getElementById('message_password').innerHTML = $message;
     document.getElementById('submit').disabled = $isDisaled;
    
-  }
+}
+
+function LogoutMessage(text){
+   var x=document.getElementById("toast");
+   x.classList.add("show");
+   x.innerHTML=text;
+
+   setTimeout(function(){
+     x.classList.remove("show");
+     window.location.href = '../';
+   },2000);
+ }
