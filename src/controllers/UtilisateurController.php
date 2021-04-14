@@ -54,5 +54,29 @@ class UtilisateurController extends Controller
      * Vérifier les doublons, gestion des exceptions, etc...
      * htmlspecialchars
      */
+	* retourne le hash d'une chaîne de caractère
+	*
+	* @param  string $password
+	* @return string
+	*/
+	private function hashPassword (string $password) : string
+	{
+		return crypt($password, 'ae');
+	}
+
+	/**
+	* Compare un hash avec une chaîne de caractère à hasher
+	*
+	* @param string $hashGiven
+	* @param string $strToHash
+	* @return bool
+	*/
+	private function isHashEquals(string $hashGiven, string $strToHash) : bool
+	{
+		$res =  false;
+		if (hash_equals($hashGiven, $this->HashPassword($strToHash)))
+			$res = true;
+		return $res;
+	}
 
 }

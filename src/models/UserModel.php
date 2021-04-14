@@ -25,36 +25,6 @@ class UserModel extends Model
     }
     
 	/**
-	* Hashe le mot de passe que l'utilisateur donne
-	*
-	* @param  string $password
-	* @return string
-	*/
-	public function HashPassword (string $password) : string
-	{
-		return crypt($password, 'ae');
-	}
-
-	/**
-	* Verification du mot de passe que l'utilisateur insère
-	*
-	* @param string $password
-	* @param int $id
-	* @return bool
-	*/
-	public function CheckPassword(string $password, int $id) : bool
-	{
-		$sql = "SELECT `password`, `id` FROM `users` WHERE `id` = '".$id."'";
-		$query = $this->connection->query($sql);
-		$truepassword = $query->fetch(\PDO::FETCH_ASSOC);
-		if (hash_equals($truepassword, crypt($password, 'ae'))){
-			return true;
-		}else {
-			return false;
-		}
-	}
-
-	/**
 	* Insertion des données de l'utilisateur lors de l'inscription
 	*
 	* @param  string $pseudo
@@ -87,6 +57,12 @@ class UserModel extends Model
 		$sql = "SELECT * FROM users WHERE `username`='".$username."'";
         $query = $this->connection->query($sql);
         return $query->fetch(\PDO::FETCH_ASSOC);
+	}
+
+	public function getPasswordByid($id){
+		$sql = "SELECT password FROM users WHERE `id`= ".$id;
+		$query = $this->connection->query($sql);
+		$truepassword = $query->fetch(\PDO::FETCH_ASSOC);
 	}
 
 	
