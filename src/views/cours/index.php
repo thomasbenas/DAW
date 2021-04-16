@@ -16,25 +16,14 @@
         </div>
     </div>
     <div class="lists">
-        <div class="list">
-            <div class="list-text">
-                <h2>titre</h2>
-                <p>bonjour</p>
+        <?php /** @var array $courses */
+        foreach ($courses as $cours): ?> 
+            <div class="list">
+                <div class="list-text">
+                    <h2><a href="cours/voir/<?= $cours['slug'] ?>"><?= $cours['name'] ?></a></h2>
+                </div>
+                <img class="list-img" src="//<?= HOST . '/' . FOLDER_ROOT ?>/assets/images/<?= $cours['image'] ?>">
             </div>
-            <img class="list-img" src="./assets/images/online-courses.svg" alt="">
-        </div>
+        <?php endforeach ?>
     </div>
-
 </div>
-
-
-        <!--</*?php /** @var array $courses */
-        foreach ($courses as $cours): ?> -->
-       <!-- <a href="cours/voir/</*?= $cours['slug'] ?>"></*?= $cours['id'] ?></a> -->
-
-
-        <!--</*?php endforeach ?> -->
-
-            <!-- <img src"</*?= cours['image-path]?>" > -->
-            <!--<h2></*?= $cours['slug'] ?></h2> -->
-            <!--<h2></*?= $cours['desc'] ?></h2> -->

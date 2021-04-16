@@ -68,6 +68,10 @@ a:hover{
     margin: 0 10px;
 }
 
+
+
+
+
 .button-fill{
     background-color: var(--main-color-dark);
     margin: 0 10px;
@@ -140,7 +144,7 @@ a:hover{
 
 }
 
-/* /// INDEX /// */
+/* /// INDEX COURS /// */
 
 .presentation-index{
     background-color: var(--main-color-light);
@@ -155,4 +159,51 @@ a:hover{
 
 .selection-cours > p{
     font-size: 1.3rem;
+}
+
+/* /// VUE COURS /// */
+.chapitre{
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+.intro-cours{
+    display: flex;
+}
+.logo{
+    width : 80px;
+    height: 80px;
+}
+.image-cours{
+    height: 200px;
+    width: 300px;
+    object-fit: contain;
+}
+
+/* /// Marge / Chapitre  /// */
+.pagechapitre{
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+.margechapitre{
+    display: flex;
+    padding-top: 50px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    border-right: solid 3px var(--main-color-dark);
+}
+.contenuchapitre{
+    padding-top: 60px;
+    padding-left: 50px;
+}
+.buttonchapter{
+    border: solid 1px var(--main-color-dark);
+    margin: 0 10px;
+    background-color: #219EBC;
+}
+.buttonchapter:hover {
+    background-color: var(--main-color-dark);
+    color: var(--text-color-on-dark);
+    cursor: pointer;
 }
