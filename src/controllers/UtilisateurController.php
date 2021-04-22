@@ -71,7 +71,7 @@ class UtilisateurController extends Controller
 	* @param  string $password
 	* @return string
 	*/
-	private function hashPassword (string $password) : string
+	private function hashPassword(string $password) : string
 	{
 		return crypt($password, 'ae');
 	}
