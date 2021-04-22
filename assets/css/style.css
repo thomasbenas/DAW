@@ -263,6 +263,8 @@ img{
 
 .error_text{
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
@@ -270,6 +272,10 @@ img{
     font-weight: 800;
     font-size: 1.5em;
     text-align: center;
+}
+
+.error_text > .button-fill{
+    margin: 20px 0;
 }
 
 .error_img{
