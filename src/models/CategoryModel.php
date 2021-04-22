@@ -2,6 +2,9 @@
 	namespace app\src\models;
 	use app\src\core\Model;
 
+	/**
+	 * CategoryModel
+	 */
 	class CategoryModel extends Model
 	{
 		public function __construct()
