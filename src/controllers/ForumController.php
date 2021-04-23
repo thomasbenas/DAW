@@ -69,7 +69,12 @@
 			$this->render('forum', 'interventions', ['subjects'=>$subjects]);
 		}
 
-		public function ajoutSujet(string $ctg_slug)
+		/**
+		 * Traite les informations nécessaires pour ajouter un sujet
+		 *
+		 * @param string $ctg_slug
+		 */
+		public function ajoutSujet(string $ctg_slug) : void
 		{
 			if (isset($_POST['name']) && isset($_POST['slug'])) {
 				$category = $this->Category->GetBySlug($ctg_slug);
@@ -85,14 +90,27 @@
 				}
 			}
 		}
-		public function retireSujet(string $ctg_slug)
+
+		/**
+		 * Traite les informations nécessaires pour supprimer un sujet
+		 *
+		 * @param string $ctg_slug
+		 */
+		public function retireSujet(string $ctg_slug) : void
 		{
 			if (isset($_POST['subjet'])) {
 				$subject = intval($_POST['subject'], 10);
 				$this->Subject->Remove();
 			}
 		}
-		public function ajoutPost(string $ctg_slug, string $sbj_slug)
+
+		/**
+		 * Traite les informations nécessaires pour supprimer un post
+		 *
+		 * @param string $ctg_slug
+		 * @param string $sbj_slug
+		 */
+		public function ajoutPost(string $ctg_slug, string $sbj_slug) : void
 		{
 			if (isset($_POST['content'])) {
 				$category = $this->Category->GetBySlug($ctg_slug);
@@ -115,7 +133,14 @@
 				}
 			}
 		}
-		public function retirePost(string $ctg_slug, string $sbj_slug)
+
+		/**
+		 * Traite les informations nécessaire pour supprimer un post
+		 *
+		 * @param string $ctg_slug
+		 * @param string $sbj_slug
+		 */
+		public function retirePost(string $ctg_slug, string $sbj_slug) : void
 		{
 			if (isset($_POST['post']))
 			{
@@ -124,7 +149,13 @@
 			}
 		}
 
-		private function toHTML($txt)
+		/**
+		 * Traduit le BBcode en HTML
+		 *
+		 * @param string $text
+		 * @return string
+		 */
+		private function toHTML($txt) : string
 		{
 			$txt = htmlentities($txt);
 			$bbcode = array(
