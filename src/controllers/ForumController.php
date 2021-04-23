@@ -22,10 +22,10 @@
 				$subjects = $this->Subject->GetByCategory($id, 3);
 				array_push($tab, [
 					'infos' => $category,
-					'content'=>$subjects
+					'content' => $subjects
 				]);
 			}
-			$this->render('forum', 'index'/*, ['data'=>$tab]*/);
+			$this->render('forum', 'index', ['data'=>$tab]);
 		}
 
 		public function categorie(string $slug)
