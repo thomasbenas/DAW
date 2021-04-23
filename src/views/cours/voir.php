@@ -1,6 +1,5 @@
 <div class="container">
     <div class="intro-cours ">
-       <!-- <img class="image-cours" src="</*?= $courses['img']?>" alt=""> -->
         <h1 class="titre-cours"><?= $courses['name'] ?></h1> 
     </div>    
     <p>Progrès global</p> 

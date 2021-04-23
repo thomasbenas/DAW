@@ -83,7 +83,9 @@ class CoursModel extends Model
 		$query = $this->connection->query($sql);
 		return $query->fetchAll();
 	}
-
+	/**
+	 * Récupération d'un chapitre en fonction du slug.
+	 */
 	public function getChapitreBySlug(string $slug)
 	{
 		$sql = "select * from chapters where slug = '" .$slug . "'";
@@ -92,7 +94,7 @@ class CoursModel extends Model
 	}
 
 	/**
-	 * Récupération de tout les chapitres en fonction du cours
+	 * Récupération de tout les chapitres en fonction du cours.
 	 * 
 	 * @param int $lesson ID du cours
 	 */
@@ -103,6 +105,9 @@ class CoursModel extends Model
 		return $query->fetchAll();		
 
 	}
+	/**
+	 * Récupération des données d'un chapitre en fonction de son numéro.
+	 */
 	public function getChapitreNumber(int $number)
 	{
 		$sql = "SELECT * from chapters where ch_number = '" . $number . "'"; 
