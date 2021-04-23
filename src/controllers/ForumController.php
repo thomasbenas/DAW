@@ -16,6 +16,7 @@
 		{
 			$tab = array();
 			$categories = $this->Category->GetAll();
+			$cat = $this->Category->GetBySlug('PHP');
 			foreach ($categories as $category) {
 				$id = intval($category['id'], 10);
 				$subjects = $this->Subject->GetByCategory($id, 3);
@@ -24,7 +25,7 @@
 					'content'=>$subjects
 				]);
 			}
-			$this->render('forum', 'index', ['data'=>$tab]);
+			$this->render('forum', 'index'/*, ['data'=>$tab]*/);
 		}
 
 		public function categorie(string $slug)
@@ -61,6 +62,11 @@
 					]);
 				}
 			}
+		}
+		public function interventions()
+		{
+			$subjects = $this->Subject->GetInterventions($_SESSION['user_id']);
+			$this->render('forum', 'interventions', ['subjects'=>$subjects]);
 		}
 
 		public function ajoutSujet(string $ctg_slug)
