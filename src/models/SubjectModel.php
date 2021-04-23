@@ -49,6 +49,22 @@
 		}
 
 		/**
+		 * Retourne tous les sujets dans lesquels l'utilisateur est intervenu,
+		 * soit en créant le sujet, soit en mettant un post
+		 *
+		 * @param int $user
+		 * @return mixed
+		 */
+		public function GetInterventions(int $user)
+		{
+			$sql = 'SELECT * FROM subjects AS sbj WHERE author = :user OR EXISTS (SELECT * FROM posts WHERE author = :user AND subject = sbj.id) ORDER BY date DESC;';
+			$request = $this->connection->prepare($sql);
+			$request->bindParam(':user', $user);
+			$request->execute();
+			return $request->fetchAll(\PDO::FETCH_ASSOC);
+		}
+
+		/**
 		 * Ajoute un sujet dans la base de données
 		 *
 		 * @param int $author
