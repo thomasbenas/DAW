@@ -37,13 +37,7 @@
 		 */
 		public function LastPost(int $author, int $subject)
 		{
-			$sql = 'SELECT * FROM posts
-						WHERE author = :author
-							AND subject = :subject
-							AND date >= ALL (
-								SELECT date FROM posts
-									WHERE author = :author AND subject = :subject
-							);';
+			$sql = 'SELECT * FROM posts WHERE author = :author AND subject = :subject AND date >= ALL (SELECT date FROM posts WHERE author = :author AND subject = :subject);';
 			$request = $this->connection->prepare($sql);
 			$request->bindParam(':author', $author);
 			$request->bindParam(':subject', $subject);
