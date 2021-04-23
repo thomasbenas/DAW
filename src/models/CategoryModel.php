@@ -18,8 +18,9 @@
 		 * Retourne la catégorie qui correspond à un certain slug
 		 *
 		 * @param string $slug
+		 * @return mixed
 		 */
-		public function GetBySlug(string $slug) : void
+		public function GetBySlug(string $slug)
 		{
 			$sql = 'SELECT * FROM categories WHERE slug = ?;';
 			$request = $this->connection->prepare($sql);
@@ -33,7 +34,7 @@
 		 * @param string $name
 		 * @param string $description
 		 */
-		public function Add(string $name, string $description)
+		public function Add(string $name, string $description) : void
 		{
 			$sql = 'INSERT INTO categories (name, description) VALUES (:name, :description);';
 			$request = $this->connection->prepare($sql);
@@ -46,9 +47,8 @@
 		 * Retire une catégorie en fonction de son identifiant
 		 *
 		 * @param int $id
-		 *
 		 */
-		public function Remove(int $id)
+		public function Remove(int $id) : void
 		{
 			$sql = 'DELETE FROM categories WHERE id = ?;';
 			$request = $this->connection->prepare($sql);
