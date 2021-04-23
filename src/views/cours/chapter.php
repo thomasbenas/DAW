@@ -5,7 +5,7 @@
                 <div class="chapitre"> 
                     <img class="logo" src="http://localhost/DAW/assets/images/flag.svg">
                     <h2><a href="//<?= HOST . '/' . FOLDER_ROOT ?>/cours/chapter/<?= $c['name'] ?>"><?= $c['name'] ?></a></h2>
-            </div>
+                </div>
     <?php endforeach ?>
     </div>
     <div class="contenuchapitre">
@@ -15,8 +15,7 @@
             <div class="buttonchapter"><a href="//<?= HOST . '/' . FOLDER_ROOT ?>/cours/chapter/<?= $chapitrePrecedent['name'] ?>">Précedent</a></div>
             <div class="buttonchapter"><a href="//<?= HOST . '/' . FOLDER_ROOT ?>/cours/chapter/<?= $chapitreSuivant['name'] ?>">Suivant</a></div>
         </div>
-    </div>
-    
+    </div>  
 </div>
 
 
