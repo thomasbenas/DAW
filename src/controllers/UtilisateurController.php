@@ -25,7 +25,7 @@ class UtilisateurController extends Controller
             'utilisateur' => $this,
         ]);
     }
-
+    
     public function userRegistration($username, $password, $mail){
         $hashedPassword = $this->hashPassword($password);
         $model = "user";
@@ -63,6 +63,9 @@ class UtilisateurController extends Controller
             $method = 'get'.ucfirst($key);
             $_SESSION[$key] = $this->$model->$method();
         }
+
+        $isAdmin = $this->$model->isAdmin($_SESSION['id']);
+        $_SESSION['admin'] = $isAdmin; 
     }
 
     /**
