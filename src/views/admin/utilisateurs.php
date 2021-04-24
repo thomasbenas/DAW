@@ -7,7 +7,6 @@
 
     <div class="table">
         <div class="table-head">
-            <div class="table-head-item">Id</div>
             <div class="table-head-item">Pseudo</div>
             <div class="table-head-item">Mail</div>
             <div class="table-head-item">Date d'adhésion</div>
@@ -16,7 +15,6 @@
         </div>
         <?php foreach ($users as $user): ?>
         <div class="table-row">
-            <div class="table-row-item"><?= $user['id'] ?></div>
             <div class="table-row-item"><?= $user['username'] ?></div>
             <div class="table-row-item"><?= $user['mail'] ?></div>
             <div class="table-row-item"><?= dateInFrenchFormat($user['date_registration']); ?></div>

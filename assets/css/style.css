@@ -488,7 +488,7 @@ img{
 
 .table-row, .table-head{
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr 2fr 2fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1.5fr;
     text-align: center;
 }
 
@@ -508,6 +508,7 @@ img{
 .table-row-item-button{
     display: flex;
     align-items: center;
+    justify-content: flex-end;
 }
 
 .goBack{

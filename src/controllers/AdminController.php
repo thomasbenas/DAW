@@ -54,6 +54,19 @@ class AdminController extends Controller
         ]);
     }
 
+    public function cours(){
+        $this->isAdmin();
+
+        $coursModel = "cours";
+        $this->loadModel($coursModel);
+        $courses = $this->$coursModel->getAll();
+
+        $this->render('admin', 'cours', [
+            "courses" => $courses,
+            "adminCapacity" => $this,
+        ]);
+    }
+
     public function deleteUser($id){
         $userModel = "user";
         $this->loadModel($userModel);
