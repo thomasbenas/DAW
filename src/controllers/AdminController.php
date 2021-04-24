@@ -53,4 +53,17 @@ class AdminController extends Controller
             "adminCapacity" => $this,
         ]);
     }
+    public function deleteUser($id){
+        $userModel = "user";
+        $this->loadModel($userModel);
+        $isAdmin = $this->$userModel->isAdmin($id);
+
+        if(!$isAdmin){
+            $this->$userModel->deleteUser($id);
+            $refresh = '//' . HOST . '/' .FOLDER_ROOT . '/admin/utilisateurs'; 
+            header('Location:'.$refresh);
+        } else {
+            $_GET['error'] = "L'utilisateur est un administrateur il ne peut pas être supprimé. Changez son rôle d'abord.";
+        }
+    }
 }
