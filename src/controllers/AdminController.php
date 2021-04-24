@@ -79,7 +79,7 @@ class AdminController extends Controller
             $refresh = '//' . HOST . '/' .FOLDER_ROOT . '/admin/utilisateurs'; 
             header('Location:'.$refresh);
         } else {
-            $_GET['error'] = "Impossible de modifier le rôle de l'admin. Ajoutez en un autre d'abord.";
+            $_GET['error'] = "Impossible de modifier le rôle de l'admin. Ajoutez un autre admin d'abord.";
         }
     }
 }
