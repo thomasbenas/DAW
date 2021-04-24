@@ -36,4 +36,21 @@ class AdminController extends Controller
         ]);
     }
 
+    public function utilisateurs(){
+        $this->isAdmin();
+
+        $userModel = "user";
+        $this->loadModel($userModel);
+        $users = $this->$userModel->getUsersAndRoles();
+
+        $roleModel = "role";
+        $this->loadModel($roleModel);
+        $roles = $this->$roleModel->getAll();
+
+        $this->render('admin', 'utilisateurs', [
+            "users" => $users,
+            "roles" => $roles,
+            "adminCapacity" => $this,
+        ]);
+    }
 }
