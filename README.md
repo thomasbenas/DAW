@@ -21,6 +21,7 @@ Projet L3 Développement d'applications web
 * Architecture MVC
 * Gestion des erreurs (page 404)
 * Inscription & et connexion des utilisateurs
+* Deux thèmes
 
 ## Ressources 
 
