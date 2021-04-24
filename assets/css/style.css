@@ -77,10 +77,9 @@ img{
     justify-content: center;
 }
 
-.button, .button-fill {
+.button, .button-fill{
    border: 0.5px solid var(--main-color);
    padding: 10px;
-
 }
 
 .button-fill{
@@ -417,6 +416,10 @@ img{
 
 .error_message{
     color: rgba(175, 0, 0, 0.6);
+    
+}
+
+.error_form{
     font-size: 0.7em;
 }
 
