@@ -5,12 +5,12 @@
     </div>
     <div class="form">
         <?php if(!empty($_POST['userName']) && !empty($_POST['userPassword'])): ?>
-            <?php require_once(ROOT.'src/form/utilisateur/rejoindreAction.php') ?>
+            <?php require_once(ROOT.'src/forms/utilisateur/rejoindreAction.php') ?>
         <?php endif; ?>
         <div class="form-head">
             <h3>Rejoindre</h3>
             <img src="../assets/images/blog.svg" alt="">
         </div>
-        <?php require_once(ROOT.'src/form/utilisateur/rejoindreForm.php') ?>  
+        <?php require_once(ROOT.'src/forms/utilisateur/rejoindreForm.php') ?>  
     </div>
 </div>
