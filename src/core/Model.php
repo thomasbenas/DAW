@@ -22,11 +22,15 @@ abstract class Model
      */
     public function __construct()
     {
-        (new DotEnv('.env'))->load();
+        /*(new DotEnv('.env'))->load();
 
         $this->host = getenv('database_dns');
         $this->username = getenv('database_user');
-        $this->password = getenv('database_password');
+        $this->password = getenv('database_password');*/
+
+        $this->host = 'mysql:host=localhost;dbname=daw';
+        $this->username = 'root';
+        $this->password = 'root';
     }
     
     public function hydrate(array $data)
@@ -62,7 +66,7 @@ abstract class Model
      * @param  mixed $id 
      * @return mixed
      */
-    public function getOne($id) : mixed
+    public function getOne($id)
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE id=".$id;
         $query = $this->connection->query($sql);
@@ -74,11 +78,11 @@ abstract class Model
      *
      * @return mixed
      */
-    public function getAll() : mixed
+    public function getAll()
     {
         $sql = "SELECT * FROM " . $this->table;
         $query = $this->connection->query($sql);
-        return $query->fetchAll();
+        return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
     
     /**
@@ -87,7 +91,7 @@ abstract class Model
      * @param  mixed $slug
      * @return mixed
      */
-    public function findBySlug(string $slug) : mixed
+    public function findBySlug(string $slug)
     {
         $sql = "SELECT * FROM ".$this->table." WHERE `slug`='".$slug."'";
         $query = $this->connection->query($sql);
