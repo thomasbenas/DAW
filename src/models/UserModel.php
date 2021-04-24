@@ -64,6 +64,17 @@ class UserModel extends Model
         $query = $this->connection->query($sql);
 		$count = $query->fetchColumn();
 
+		return $count > 0;
+	}
+
+	public function countAdmin()
+	{
+		$sql = "SELECT COUNT(id) FROM users, permissions WHERE users.id = permissions.user AND permissions.role = 1";
+        $query = $this->connection->query($sql);
+		$count = $query->fetchColumn();
+
+		return $count;
+	}
 	/**
 	 * Get the value of biography
 	 */
