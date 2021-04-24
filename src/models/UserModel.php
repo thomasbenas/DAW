@@ -58,6 +58,52 @@ class UserModel extends Model
         return $query->fetch(\PDO::FETCH_ASSOC);
 	}
 
+	public function getUsersAndRoles() : mixed
+    {
+        $sql = "SELECT users.id, username, mail, date_registration, roles.name AS role
+		FROM users LEFT JOIN permissions ON users.id = permissions.user
+		LEFT JOIN roles ON roles.id = permissions.role";
+        $query = $this->connection->query($sql);
+        return $query->fetchAll();
+    }
+
+	public function isAdmin($id)
+	{
+		$sql = "SELECT id FROM users, permissions WHERE users.id = permissions.user AND permissions.role = 1 AND id = " . $id;
+        $query = $this->connection->query($sql);
+		$count = $query->fetchColumn();
+
+		return $count > 0;
+	}
+
+	public function countAdmin()
+	{
+		$sql = "SELECT COUNT(id) FROM users, permissions WHERE users.id = permissions.user AND permissions.role = 1";
+        $query = $this->connection->query($sql);
+		$count = $query->fetchColumn();
+
+		return $count;
+	}
+
+	public function deleteUser($id){
+		$sql = "DELETE FROM users WHERE id = :user_id";
+		$stmt = $query = $this->connection->prepare($sql);
+		$stmt->bindParam(':user_id', $id, \PDO::PARAM_INT);
+		$stmt->execute();
+	}
+
+	public function updateUserRole($id, $newRole){
+		$sql = "UPDATE permissions 
+		JOIN users ON users.id = permissions.user 
+		JOIN roles ON roles.id = permissions.role
+		SET permissions.role = :new_role
+		WHERE users.id = :user_id";
+		$stmt = $query = $this->connection->prepare($sql);
+		$stmt->bindParam(':user_id', $id, \PDO::PARAM_INT);
+		$stmt->bindParam(':new_role', $newRole, \PDO::PARAM_INT);
+		$stmt->execute();
+	}
+
 	/**
 	 * Get the value of biography
 	 */
