@@ -9,8 +9,16 @@ use app\src\core\controller;
  */
 class AdminController extends Controller
 {
+    private function isAdmin(){
+        $isAdmin = (!empty($_SESSION)) ? $_SESSION['admin'] : false;
+        if(!$isAdmin){
+            $error = new ErrorController();
+            $error->error_403();
+        }
+    }
 
     public function index(){
+        $this->isAdmin();
 
         $userModel = "user";
         $this->loadModel($userModel);

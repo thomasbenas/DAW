@@ -58,6 +58,12 @@ class UserModel extends Model
         return $query->fetch(\PDO::FETCH_ASSOC);
 	}
 
+	public function isAdmin($id)
+	{
+		$sql = "SELECT id FROM users, permissions WHERE users.id = permissions.user AND permissions.role = 1 AND id = " . $id;
+        $query = $this->connection->query($sql);
+		$count = $query->fetchColumn();
+
 	/**
 	 * Get the value of biography
 	 */
