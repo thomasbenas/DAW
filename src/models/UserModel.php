@@ -58,6 +58,15 @@ class UserModel extends Model
         return $query->fetch(\PDO::FETCH_ASSOC);
 	}
 
+	public function getUsersAndRoles() : mixed
+    {
+        $sql = "SELECT users.id, username, mail, date_registration, roles.name AS role
+		FROM users LEFT JOIN permissions ON users.id = permissions.user
+		LEFT JOIN roles ON roles.id = permissions.role";
+        $query = $this->connection->query($sql);
+        return $query->fetchAll();
+    }
+
 	public function isAdmin($id)
 	{
 		$sql = "SELECT id FROM users, permissions WHERE users.id = permissions.user AND permissions.role = 1 AND id = " . $id;
