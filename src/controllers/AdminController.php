@@ -53,6 +53,7 @@ class AdminController extends Controller
             "adminCapacity" => $this,
         ]);
     }
+
     public function deleteUser($id){
         $userModel = "user";
         $this->loadModel($userModel);
@@ -64,6 +65,21 @@ class AdminController extends Controller
             header('Location:'.$refresh);
         } else {
             $_GET['error'] = "L'utilisateur est un administrateur il ne peut pas être supprimé. Changez son rôle d'abord.";
+        }
+    }
+
+    public function updateRole($id, $newRole){
+        $userModel = "user";
+        $this->loadModel($userModel);
+        $isAdmin = $this->$userModel->isAdmin($id);
+        $countAdmin = $this->$userModel->countAdmin();
+
+        if(($isAdmin && $countAdmin > 1) || !$isAdmin){
+            $this->$userModel->updateUserRole($id, $newRole);
+            $refresh = '//' . HOST . '/' .FOLDER_ROOT . '/admin/utilisateurs'; 
+            header('Location:'.$refresh);
+        } else {
+            $_GET['error'] = "Impossible de modifier le rôle de l'admin. Ajoutez en un autre d'abord.";
         }
     }
 }
