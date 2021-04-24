@@ -80,6 +80,18 @@ abstract class Model
         $query = $this->connection->query($sql);
         return $query->fetchAll();
     }
+
+    /**
+     * Permet d'avoir le nombre d'occurence d'une table
+     *
+     * @return int
+     */
+    public function count() : array
+    {
+        $sql = "SELECT COUNT(id) FROM " . $this->table;
+        $query = $this->connection->query($sql);
+        return $query->fetch();
+    }
     
     /**
      * Permet d'avoir l'occurence d'une table par rapport à son slug
