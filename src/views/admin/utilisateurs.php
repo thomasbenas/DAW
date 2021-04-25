@@ -21,9 +21,9 @@
             <div class="table-row-item"><?= $user['role'] ?></div>
             <div class="table-row-item-button">
                <form method="post">
-                    <button class="button-danger admin-delete-user" type="submit" name="delete_user" value="<?= $user['id'] ?>">Supprimer</button>
+                    <button class="button-danger" type="submit" name="delete_user" value="<?= $user['id'] ?>">Supprimer</button>
                     <input type="hidden" name="user_role" value="<?= $user['role']?>"/>
-                    <button class="button-danger admin-update-role" type="submit" name="update_role" value="<?= $user['id'] ?>">Gérer les rôles</button>
+                    <button class="button-danger" type="submit" name="update_role" value="<?= $user['id'] ?>">Gérer les rôles</button>
                </form>
             </div>
         </div>
