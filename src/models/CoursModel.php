@@ -17,6 +17,14 @@ class CoursModel extends Model
 		$this->connection();
 	}
 	
+	public function getCoursFullInfos() : mixed
+    {
+        $sql = "SELECT lessons.id, lessons.name, lessons.date_publication, lessons.slug, users.username AS author, difficulties.name AS difficulty
+		FROM lessons INNER JOIN users ON users.id = lessons.author
+		INNER JOIN difficulties ON difficulties.id = lessons.difficulty";
+        $query = $this->connection->query($sql);
+        return $query->fetchAll();
+    }
 
 	public function addCourse($name, $slug, $difficulty, $categorie, $summary)
 	{
@@ -30,6 +38,13 @@ class CoursModel extends Model
 		$stmt->bindParam(':difficulty',$difficulty);
 		$stmt->bindParam(':slug',$slug);
 		$stmt->bindParam(':summary',$summary);
+		$stmt->execute();
+	}
+
+	public function deleteUser($id){
+		$sql = "DELETE FROM lessons WHERE id = :lessons_id";
+		$stmt = $query = $this->connection->prepare($sql);
+		$stmt->bindParam(':lessons_id', $id, \PDO::PARAM_INT);
 		$stmt->execute();
 	}
 }
