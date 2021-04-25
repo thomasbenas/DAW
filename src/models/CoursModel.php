@@ -79,7 +79,7 @@ class CoursModel extends Model
 	 */
 	public function getAllChapitre(string $slug)
 	{
-		$sql = "SELECT chapters.name FROM chapters,lessons WHERE lesson = lessons.id  AND lessons.slug = '"  . $slug . "'";
+		$sql = "SELECT chapters.name, chapters.slug FROM chapters,lessons WHERE lesson = lessons.id  AND lessons.slug = '"  . $slug . "'";
 		$query = $this->connection->query($sql);
 		return $query->fetchAll();
 	}

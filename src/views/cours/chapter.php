@@ -12,8 +12,8 @@
         <h1>Chapitre n° <?= $chapitre['ch_number']?> - <?= $chapitre['name'] ?></h1>
         <p><?= $chapitre['content'] ?></p>
         <div class="buttons">
-            <div class="buttonchapter"><a href="//<?= HOST . '/' . FOLDER_ROOT ?>/cours/chapter/<?= $chapitrePrecedent['name'] ?>">Précedent</a></div>
-            <div class="buttonchapter"><a href="//<?= HOST . '/' . FOLDER_ROOT ?>/cours/chapter/<?= $chapitreSuivant['name'] ?>">Suivant</a></div>
+            <div class="buttonchapter"><a href="//<?= HOST . '/' . FOLDER_ROOT ?>/cours/chapter/<?= $chapitrePrecedent['slug'] ?>">Précedent</a></div>
+            <div class="buttonchapter"><a href="//<?= HOST . '/' . FOLDER_ROOT ?>/cours/chapter/<?= $chapitreSuivant['slug'] ?>">Suivant</a></div>
         </div>
     </div>  
 </div>
