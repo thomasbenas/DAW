@@ -59,7 +59,6 @@ class AdminController extends Controller
 
         $coursModel = "cours";
         $this->loadModel($coursModel);
-        $courses = $this->$coursModel->getAll();
         $courses = $this->$coursModel->getCoursFullInfos();
 
         $this->render('admin', 'cours', [
