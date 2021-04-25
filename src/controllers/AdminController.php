@@ -130,4 +130,11 @@ class AdminController extends Controller
             $_GET['error'] = "Impossible de modifier le rôle de l'admin. Ajoutez un autre admin d'abord.";
         }
     }
+
+    public function addCourse($name, $slug, $difficulty, $categorie, $summary){
+        $coursModel = "cours";
+        $this->loadModel($coursModel);
+        $courses = $this->$coursModel->addCourse($name, $slug, $difficulty, $categorie, $summary);
+        //TODO gérer les cours déjà existants
+    }
 }
