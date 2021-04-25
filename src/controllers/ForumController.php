@@ -65,7 +65,7 @@
 		}
 		public function interventions()
 		{
-			$subjects = $this->Subject->GetInterventions($_SESSION['user_id']);
+			$subjects = $this->Subject->GetInterventions($_SESSION['id']);
 			$this->render('forum', 'interventions', ['subjects'=>$subjects]);
 		}
 
@@ -84,7 +84,7 @@
 					$ctg = intval($category['id'], 10);
 					$name = htmlentities($_POST['name']);
 					$slug = htmlentities($_POST['slug']);
-					$this->Subject->Add($_SESSION['user_id'], $ctg, $name, $slug);
+					$this->Subject->Add($_SESSION['id'], $ctg, $name, $slug);
 
 					header('location: //'.HOST.'/'.FOLDER_ROOT.'/forum/categorie/'.$ctg_slug);
 				}
@@ -124,9 +124,9 @@
 					} else {
 						$sbj_id = intval($subject['id'], 10);
 						$content = $this->toHTML($_POST['content']);
-						$this->Post->Add($_SESSION['user_id'], $sbj_id, $content);
+						$this->Post->Add($_SESSION['id'], $sbj_id, $content);
 
-						$last_post = $this->Post->LastPost($_SESSION['user_id'], $sbj_id);
+						$last_post = $this->Post->LastPost($_SESSION['id'], $sbj_id);
 						$ancre = '#p_' . $last_post['id'];
 						header('location: //'.HOST.'/'.FOLDER_ROOT.'/forum/sujet/'.$ctg_slug.'/'.$sbj_slug.$ancre);
 					}
