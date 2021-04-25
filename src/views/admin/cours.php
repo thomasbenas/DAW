@@ -20,14 +20,22 @@
             <div class="table-row-item"><?= dateInFrenchFormat($course['date_publication']); ?></div>
             <div class="table-row-item"><?= $course['difficulty'] ?></div>
             <div class="table-row-item-button">
-            <form method="post">
-                    <button class="button-fill"><a href="//<?= HOST . '/' .FOLDER_ROOT ?>/cours/voir/<?= $course['slug'] ?>">Voir</a></button>
-                    <button class="button-fill" type="submit" name="update_role" value="<?= $user['id'] ?>"><a>Ajouter un chapitre</a></button>
-                    <button class="button-danger" type="submit" name="delete_user" value="<?= $user['id'] ?>">Supprimer</button>
-            </form>
+                <button class="button-action"><a href="//<?= HOST . '/' .FOLDER_ROOT ?>/cours/voir/<?= $course['slug'] ?>">Voir</a></button>
+                <form method="post">
+                    <button class="button-action" type="submit" name="add_chapter" value="<?= $course['id'] ?>"><a>Ajouter un chapitre</a></button>
+                    <button class="button-danger" type="submit" name="delete_course" value="<?= $course['id'] ?>">Supprimer</button>
+                </form>
             </div>
         </div>
         <?php endforeach ?>
-    </div>   
-    <?php //require_once(ROOT.'src/forms/admin/utilisateursAction.php') ?> 
+    </div>
+    
+    <button class="button-action"><a href="//<?= HOST . '/' .FOLDER_ROOT ?>/admin/ajout/cours">Ajouter un cours</a></button>
+ 
+    <?php
+        if(isset($_POST['delete_course'])){
+            $id_course = htmlspecialchars($_POST['delete_course']);
+            $adminCapacity->deleteCourse($id_course);
+        } 
+    ?>
 </div>

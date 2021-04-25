@@ -60,6 +60,7 @@ class AdminController extends Controller
         $coursModel = "cours";
         $this->loadModel($coursModel);
         $courses = $this->$coursModel->getAll();
+        $courses = $this->$coursModel->getCoursFullInfos();
 
         $this->render('admin', 'cours', [
             "courses" => $courses,
@@ -67,6 +68,31 @@ class AdminController extends Controller
         ]);
     }
 
+    public function ajout(string $slug){
+        $this->isAdmin();
+        
+       switch ($slug) {
+           case 'cours':
+                $difficulteModel = "difficulte";
+                $this->loadModel($difficulteModel);
+                $difficulties = $this->$difficulteModel->getAll();
+
+                $categorieModel = "categorie";
+                $this->loadModel($categorieModel);
+                $categories = $this->$categorieModel->getAll();
+
+                $this->render('admin', 'ajoutCours', [
+                    "difficulties" => $difficulties,
+                    "categories" => $categories,
+                    "adminCapacity" => $this,
+                ]);
+                break;
+           default:
+                $error = new ErrorController();
+                $error->error_404();
+                break;
+       }
+    }
     public function deleteUser($id){
         $userModel = "user";
         $this->loadModel($userModel);
