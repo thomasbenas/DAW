@@ -117,17 +117,34 @@ img{
     color: var(--text-color-contrast);
 }
 
-.button-danger{
-    border: 0.5px solid #dd5e5e;
-    background-color: #dd5e5e;
+.button-action, .button-danger{
     color: var(--background-color);
     padding: 8px;
     margin-right: 10px;
 }
 
+.button-danger{
+    border: 0.5px solid #dd5e5e;
+    background-color: #dd5e5e;
+}
+
 .button-danger:hover{
     cursor: pointer;
     background-color: #c55858;
+}
+
+.button-action{
+    border: 0.5px solid #457EAC;
+    background-color: #457EAC;
+}
+
+.button-action:hover{
+    cursor: pointer;
+    background-color: #457EAC;
+}
+
+.button-action > a:hover, .button-danger > a:hover{
+    color: white;
 }
 
 /* /// UNDERLINE /// */
@@ -296,6 +313,20 @@ img{
     background-position-x: center;
 }
 
+.error_message{
+    color: rgba(175, 0, 0, 0.6);
+    
+}
+
+.error_form{
+    font-size: 0.7em;
+}
+
+.error_admin{
+    font-size: 1em;
+    margin-top: 40px;
+}
+
 
 /* /// MENU /// */
 
@@ -369,6 +400,8 @@ img{
     font-size: 1.4em;
 }
 
+/* /// FORM /// */
+
 .form{
     background-color: var(--background-color);
     display: flex;
@@ -414,19 +447,41 @@ img{
     color: var(--text-color-contrast);
 }
 
-.error_message{
-    color: rgba(175, 0, 0, 0.6);
-    
+.form-label{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin: 20px 0;
 }
 
-.error_form{
-    font-size: 0.7em;
+.form-inputs-admin{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.error_admin{
-    font-size: 1em;
-    margin-top: 40px;
+.form-inputs-admin > input{
+    margin: 20px 0;
+    padding: 12px;
 }
+
+.form-inputs-admin > .button-validate{
+    background-color: #457EAC;
+    border: none;
+    color: white;
+}
+
+.form-inputs-admin > textarea{
+    padding: 10px;
+}
+
+
+.form-label > select, .form-inputs-admin > input, .form-label > select, .form-inputs-admin > textarea{
+    border: 1px solid var(--background-color);
+    border-radius: 5px;
+}
+
 
 /* /// ADMIN /// */
 .overview{
@@ -520,7 +575,6 @@ img{
     padding: 8px;
     border: 1px solid #CCC;
 }
-
 
 /* /// RESPONSIVE /// */
 
