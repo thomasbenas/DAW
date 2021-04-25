@@ -28,11 +28,16 @@ class AdminController extends Controller
         $this->loadModel($coursModel);
         $coursCount = $this->$coursModel->count();
 
+        $categorieModel = "categorie";
+        $this->loadModel($categorieModel);
+        $categoriesCount = $this->$categorieModel->count();
+
         //TODO modèles pour les catégories et les QCM
 
         $this->render('admin', 'index', [
             "usersCount" => $usersCount[0],
             "coursCount" => $coursCount[0],
+            "categoriesCount" => $categoriesCount[0],
         ]);
     }
 
