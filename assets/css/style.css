@@ -68,10 +68,6 @@ a:hover{
     margin: 0 10px;
 }
 
-
-
-
-
 .button-fill{
     background-color: var(--main-color-dark);
     margin: 0 10px;
@@ -99,6 +95,7 @@ a:hover{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    margin-top: 20px;
 }
 
 .list{
@@ -178,6 +175,18 @@ a:hover{
     height: 200px;
     width: 300px;
     object-fit: contain;
+}
+
+.list-cours{
+    background-color: white;
+    margin-bottom: 50px;
+    padding: 40px;
+    display: block;
+    border-radius: 10px;
+}
+
+.list-cours > img{
+    height: 200px;
 }
 
 /* /// Marge / Chapitre  /// */

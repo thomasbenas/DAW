@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Phrase d'accroche</h1>
+    <h2>Tous nos cours</h2>
 
     <div class="buttons">
         <div class="button">
@@ -15,10 +15,11 @@
             <div class="button-content">Date</div>
         </div>
     </div>
+    
     <div class="lists">
         <?php /** @var array $courses */
         foreach ($courses as $cours): ?> 
-            <div class="list">
+            <div class="list-cours">
                 <div class="list-text">
                     <h2><a href="cours/voir/<?= $cours['slug'] ?>"><?= $cours['name'] ?></a></h2>
                     <span><?= $cours['summary'] ?></span>
