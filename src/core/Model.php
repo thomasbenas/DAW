@@ -22,15 +22,15 @@ abstract class Model
      */
     public function __construct()
     {
-        /*(new DotEnv('.env'))->load();
+        (new DotEnv('.env'))->load();
 
         $this->host = getenv('database_dns');
         $this->username = getenv('database_user');
-        $this->password = getenv('database_password');*/
+        $this->password = getenv('database_password');
 
-        $this->host = 'mysql:host=localhost;dbname=daw';
+        /*$this->host = 'mysql:host=localhost;dbname=daw';
         $this->username = 'root';
-        $this->password = 'root';
+        $this->password = 'root';*/
     }
     
     public function hydrate(array $data)
