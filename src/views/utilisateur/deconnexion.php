@@ -6,6 +6,6 @@
 
 <script>
     window.onload = function() {
-        LoginLogoutMessage('<i class=\'fas fa-check\'></i> Déconnexion réussie')
+        toastMessage('<i class=\'fas fa-check\'></i> Déconnexion réussie', '//<?= HOST . '/' .FOLDER_ROOT ?>/')
     };
 </script>

@@ -8,6 +8,6 @@ if(isset($_GET['error']))
 
 <script>
     window.onload = function() {
-        LoginLogoutMessage('<i class=\'fas fa-check\'></i> Connexion réussie !')
+        toastMessage('<i class=\'fas fa-check\'></i> Connexion réussie !', '//<?= HOST . '/' .FOLDER_ROOT ?>/')
     };
 </script>

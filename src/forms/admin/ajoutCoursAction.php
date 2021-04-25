@@ -6,6 +6,6 @@
 
 <script>
     window.onload = function() {
-        LoginLogoutMessage('<i class=\'fas fa-check\'></i> Cours créé !')
+        toastMessage('<i class=\'fas fa-check\'></i> Cours créé !', '//<?= HOST . '/' .FOLDER_ROOT ?>/admin/cours')
     };
 </script>
