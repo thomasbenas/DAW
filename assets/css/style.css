@@ -98,6 +98,14 @@ a:hover{
     margin-top: 20px;
 }
 
+.lists-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    row-gap: 40px;
+    margin-top: 30px;
+}
+
 .list{
     display: flex;
     align-items: center;
@@ -179,7 +187,6 @@ a:hover{
 
 .list-cours{
     background-color: white;
-    margin-bottom: 50px;
     padding: 40px;
     display: block;
     border-radius: 10px;
@@ -187,6 +194,10 @@ a:hover{
 
 .list-cours > img{
     height: 200px;
+}
+
+.list-cours > .list-text > h3{
+    text-align: center;
 }
 
 /* /// Marge / Chapitre  /// */

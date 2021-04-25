@@ -15,13 +15,14 @@
             <div class="button-content">Date</div>
         </div>
     </div>
-    
-    <div class="lists">
+
+    <div class="lists-grid">
         <?php /** @var array $courses */
         foreach ($courses as $cours): ?> 
             <div class="list-cours">
                 <div class="list-text">
-                    <h2><a href="cours/voir/<?= $cours['slug'] ?>"><?= $cours['name'] ?></a></h2>
+                    <h3><a href="cours/voir/<?= $cours['slug'] ?>"><?= $cours['name'] ?></a></h3>
+
                     <span><?= $cours['summary'] ?></span>
                 </div>
                 <img class="list-img" src="//<?= HOST . '/' . FOLDER_ROOT ?>/assets/images/<?= $cours['image'] ?>">
