@@ -67,7 +67,7 @@ class AdminController extends Controller
         ]);
     }
 
-    public function ajout(string $slug){
+    public function ajouter(string $slug){
         $this->isAdmin();
         
        switch ($slug) {
@@ -85,6 +85,11 @@ class AdminController extends Controller
                     "categories" => $categories,
                     "adminCapacity" => $this,
                 ]);
+                break;
+            case 'chapitre':
+                    $this->render('admin', 'ajoutChapitre', [
+                        "adminCapacity" => $this,
+                    ]);
                 break;
            default:
                 $error = new ErrorController();
@@ -135,5 +140,11 @@ class AdminController extends Controller
         $this->loadModel($coursModel);
         $courses = $this->$coursModel->addCourse($name, $slug, $difficulty, $categorie, $summary);
         //TODO gérer les cours déjà existants
+    }
+
+    public function addChapter($lesson, $name, $slug, $content){
+        $coursModel = "cours";
+        $this->loadModel($coursModel);
+        $courses = $this->$coursModel->addChapter($lesson, $name, $slug, $content);
     }
 }

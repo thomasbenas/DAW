@@ -21,16 +21,17 @@
             <div class="table-row-item"><?= $course['difficulty'] ?></div>
             <div class="table-row-item-button">
                 <button class="button-action"><a href="//<?= HOST . '/' .FOLDER_ROOT ?>/cours/voir/<?= $course['slug'] ?>">Voir</a></button>
-                <form method="post">
-                    <button class="button-action" type="submit" name="add_chapter" value="<?= $course['id'] ?>"><a>Ajouter un chapitre</a></button>
-                    <button class="button-danger" type="submit" name="delete_course" value="<?= $course['id'] ?>">Supprimer</button>
+                <form action="//<?= HOST . '/' .FOLDER_ROOT ?>/admin/ajouter/chapitre" method="post">
+                    <button class="button-action" type="submit" name="add_chapter" value="<?= $course['id'] ?>">Ajouter un chapitre</button>
+                    <input type="hidden" name="course_name" value="<?= $course['name']?>"/>
                 </form>
+                <button class="button-danger" type="submit" name="delete_course" value="<?= $course['id'] ?>">Supprimer</button>
             </div>
         </div>
         <?php endforeach ?>
     </div>
     
-    <button class="button-action"><a href="//<?= HOST . '/' .FOLDER_ROOT ?>/admin/ajout/cours">Ajouter un cours</a></button>
+    <button class="button-action"><a href="//<?= HOST . '/' .FOLDER_ROOT ?>/admin/ajouter/cours">Ajouter un cours</a></button>
  
     <?php
         if(isset($_POST['delete_course'])){

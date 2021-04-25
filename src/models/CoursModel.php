@@ -41,6 +41,16 @@ class CoursModel extends Model
 		$stmt->execute();
 	}
 
+	public function addChapter($lesson, $name, $slug, $content){
+		$sql = "INSERT INTO chapters VALUES(id, :lesson, NULL, :name, :content, :slug)";
+		$stmt = $this->connection->prepare($sql);
+		$stmt->bindParam(':lesson', $lesson);
+		$stmt->bindParam(':name', $name);
+		$stmt->bindParam(':content',$content);
+		$stmt->bindParam(':slug',$slug);
+		$stmt->execute();
+	}
+
 	public function deleteUser($id){
 		$sql = "DELETE FROM lessons WHERE id = :lessons_id";
 		$stmt = $query = $this->connection->prepare($sql);
