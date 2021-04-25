@@ -21,6 +21,7 @@
             <div class="list">
                 <div class="list-text">
                     <h2><a href="cours/voir/<?= $cours['slug'] ?>"><?= $cours['name'] ?></a></h2>
+                    <span><?= $cours['summary'] ?></span>
                 </div>
                 <img class="list-img" src="//<?= HOST . '/' . FOLDER_ROOT ?>/assets/images/<?= $cours['image'] ?>">
             </div>
