@@ -93,6 +93,15 @@ class AdminController extends Controller
                 break;
        }
     }
+
+    public function deleteCourse($id){
+        $coursModel = "cours";
+        $this->loadModel($coursModel);
+        $this->$coursModel->deleteUser($id);
+        $refresh = '//' . HOST . '/' .FOLDER_ROOT . '/admin/cours'; 
+        header('Location:'.$refresh);
+    }
+
     public function deleteUser($id){
         $userModel = "user";
         $this->loadModel($userModel);
