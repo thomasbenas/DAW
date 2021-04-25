@@ -4,7 +4,7 @@
         foreach ($chapitres as $c): ?>
                 <div class="chapitre"> 
                     <img class="logo" src="http://localhost/DAW/assets/images/flag.svg">
-                    <h2><a href="//<?= HOST . '/' . FOLDER_ROOT ?>/cours/chapter/<?= $c['name'] ?>"><?= $c['name'] ?></a></h2>
+                    <p><a href="//<?= HOST . '/' . FOLDER_ROOT ?>/cours/chapter/<?= $c['slug'] ?>"><?= $c['name'] ?></a></p>
                 </div>
     <?php endforeach ?>
     </div>

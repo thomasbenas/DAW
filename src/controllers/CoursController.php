@@ -34,8 +34,8 @@ class CoursController extends Controller
         $model = "cours";
         $this->loadModel($model);
         $chapitre = $this->$model->getChapitreBySlug($slug);
-        $chapitreSuivant = $this->$model->getChapitreNumber($chapitre['ch_number']+1);
-        $chapitrePrecedent = $this->$model->getChapitreNumber($chapitre['ch_number']-1);
+        $chapitreSuivant = $this->$model->getChapitreNumber($chapitre['ch_number']+1, $chapitre['lesson']);
+        $chapitrePrecedent = $this->$model->getChapitreNumber($chapitre['ch_number']-1, $chapitre['lesson']);
         $chapitres = $this->$model->getAllChapitreLesson($chapitre['lesson']);
         $this->render('cours', 'chapter', [
             'chapitre' => $chapitre,

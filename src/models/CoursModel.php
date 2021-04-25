@@ -108,9 +108,10 @@ class CoursModel extends Model
 	/**
 	 * Récupération des données d'un chapitre en fonction de son numéro.
 	 */
-	public function getChapitreNumber(int $number)
+	public function getChapitreNumber(int $number, int $lesson)
 	{
-		$sql = "SELECT * from chapters where ch_number = '" . $number . "'"; 
+
+		$sql = "SELECT * from chapters where ch_number = '" . $number . "' and lesson = '" .$lesson ."'";
 		$query = $this->connection->query($sql);
 		return $query->fetch(\PDO::FETCH_ASSOC);		
 	}

@@ -169,8 +169,10 @@ a:hover{
 /* /// VUE COURS /// */
 .chapitre{
     display: flex;
+    padding-bottom: 30px;
     align-items: center;
     height: 50px;
+    font-size: 0.8em;
 }
 .intro-cours{
     display: flex;
@@ -203,7 +205,7 @@ a:hover{
 /* /// Marge / Chapitre  /// */
 .pagechapitre{
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 30% 70%;
 }
 .margechapitre{
     display: flex;
