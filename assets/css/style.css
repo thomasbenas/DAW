@@ -543,8 +543,15 @@ img{
 
 .table-row, .table-head{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1.5fr;
     text-align: center;
+}
+
+.table-courses > .table-row, .table-courses > .table-head{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.5fr;
+}
+
+.table-users > .table-row, .table-users > .table-head{
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .table-row{
