@@ -32,12 +32,13 @@ class AdminController extends Controller
         $this->loadModel($categorieModel);
         $categoriesCount = $this->$categorieModel->count();
 
-        //TODO modèles pour les catégories et les QCM
+        $qcmCount = [];
 
         $this->render('admin', 'index', [
-            "usersCount" => $usersCount[0],
-            "coursCount" => $coursCount[0],
-            "categoriesCount" => $categoriesCount[0],
+            "usersCount" => (!empty($usersCount)) ? $usersCount[0] : "?",
+            "coursCount" => (!empty($coursCount)) ? $coursCount[0] : "?",
+            "categoriesCount" => (!empty($categoriesCount)) ? $categoriesCount[0] : "?",
+            "qcmCount" => (!empty($qcmCount)) ? $qcmCount[0] : "?",
         ]);
     }
 
