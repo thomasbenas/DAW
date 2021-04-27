@@ -5,12 +5,13 @@
 
     <h3>Gestion des cours</h3>
 
-    <div class="table">
+    <div class="table table-courses">
         <div class="table-head">
             <div class="table-head-item">Nom</div>
             <div class="table-head-item">Auteur</div>
             <div class="table-head-item">Publication</div>
             <div class="table-head-item">Difficulté</div>
+            <div class="table-head-item">Catégorie</div>
             <div class="table-head-item">Action</div>
         </div>
         <?php foreach ($courses as $course): ?>
@@ -19,13 +20,16 @@
             <div class="table-row-item"><?= $course['author'] ?></div>
             <div class="table-row-item"><?= dateInFrenchFormat($course['date_publication']); ?></div>
             <div class="table-row-item"><?= $course['difficulty'] ?></div>
+            <div class="table-row-item"><?= $course['category'] ?></div>
             <div class="table-row-item-button">
                 <button class="button-action"><a href="//<?= HOST . '/' .FOLDER_ROOT ?>/cours/voir/<?= $course['slug'] ?>">Voir</a></button>
                 <form action="//<?= HOST . '/' .FOLDER_ROOT ?>/admin/ajouter/chapitre" method="post">
                     <button class="button-action" type="submit" name="add_chapter" value="<?= $course['id'] ?>">Ajouter un chapitre</button>
                     <input type="hidden" name="course_name" value="<?= $course['name']?>"/>
                 </form>
-                <button class="button-danger" type="submit" name="delete_course" value="<?= $course['id'] ?>">Supprimer</button>
+               <form method="post"> 
+                    <button class="button-danger" type="submit" name="delete_course" value="<?= $course['id'] ?>">Supprimer</button>
+               </form>
             </div>
         </div>
         <?php endforeach ?>

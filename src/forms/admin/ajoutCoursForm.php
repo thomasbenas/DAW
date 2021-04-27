@@ -1,4 +1,4 @@
-<form class="form-inputs-admin" action="//<?= HOST . '/' . FOLDER_ROOT ?>/admin/ajout/cours" method="post">
+<form class="form-inputs-admin" action="//<?= HOST . '/' . FOLDER_ROOT ?>/admin/ajouter/cours" method="post">
     <input name="name" placeholder="Nom du cours" type="text" required />
     <input name="slug" placeholder="slug du cours" type="text" required />
     <div class="form-label">
