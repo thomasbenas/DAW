@@ -28,9 +28,9 @@ class AdminController extends Controller
         $this->loadModel($coursModel);
         $coursCount = $this->$coursModel->count();
 
-        $categorieModel = "categorie";
-        $this->loadModel($categorieModel);
-        $categoriesCount = $this->$categorieModel->count();
+        $categoriesModel = "categories";
+        $this->loadModel($categoriesModel);
+        $categoriesCount = $this->$categoriesModel->count();
 
         $qcmCount = [];
 
@@ -82,9 +82,9 @@ class AdminController extends Controller
                 $this->loadModel($difficulteModel);
                 $difficulties = $this->$difficulteModel->getAll();
 
-                $categorieModel = "categorie";
-                $this->loadModel($categorieModel);
-                $categories = $this->$categorieModel->getAll();
+                $categoriesModel = "categories";
+                $this->loadModel($categoriesModel);
+                $categories = $this->$categoriesModel->getAll();
 
                 $this->render('admin', 'ajoutCours', [
                     "difficulties" => $difficulties,
@@ -97,7 +97,7 @@ class AdminController extends Controller
                         $this->render('admin', 'ajoutChapitre', [
                             "adminCapacity" => $this,
                         ]);
-                    } else{
+                    }else{
                         $error = new ErrorController();
                         $error->error_403();
                     }
@@ -146,10 +146,10 @@ class AdminController extends Controller
         }
     }
 
-    public function addCourse($name, $slug, $difficulty, $categorie, $summary){
+    public function addCourse($name, $slug, $difficulty, $categories, $summary){
         $coursModel = "cours";
         $this->loadModel($coursModel);
-        $courses = $this->$coursModel->addCourse($name, $slug, $difficulty, $categorie, $summary);
+        $courses = $this->$coursModel->addCourse($name, $slug, $difficulty, $categories, $summary);
         //TODO gérer les cours déjà existants
     }
 

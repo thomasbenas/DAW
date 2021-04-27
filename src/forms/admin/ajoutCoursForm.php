@@ -11,9 +11,9 @@
     </div>
     <div class="form-label">
         <span>Séléctionner une catégorie</span>
-        <select name="categorie" class="select">
-            <?php foreach ($categories as $categorie): ?>
-                <option value="<?= $categorie['id'] ?>"><?= $categorie['name'] ?></option>
+        <select name="category" class="select">
+            <?php foreach ($categories as $category): ?>
+                <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
             <?php endforeach; ?>
         </select>
     </div>

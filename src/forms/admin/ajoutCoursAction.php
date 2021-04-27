@@ -1,5 +1,5 @@
 <?php 
-    $adminCapacity->addCourse(htmlspecialchars($_POST['name']), htmlspecialchars($_POST['slug']), htmlspecialchars($_POST['difficulty']), htmlspecialchars($_POST['categorie']), htmlspecialchars($_POST['summary'])); 
+    $adminCapacity->addCourse(htmlspecialchars($_POST['name']), htmlspecialchars($_POST['slug']), htmlspecialchars($_POST['difficulty']), htmlspecialchars($_POST['category']), htmlspecialchars($_POST['summary'])); 
 ?>
 
 <div id="toast"></div>

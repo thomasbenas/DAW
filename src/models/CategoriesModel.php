@@ -5,9 +5,9 @@ namespace app\src\models;
 use app\src\core\Model;
 
 /**
- * CategorieModel
+ * CategoriesModel
  */
-class CategorieModel extends Model
+class CategoriesModel extends Model
 {
 
     public function __construct()
