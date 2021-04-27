@@ -30,7 +30,7 @@ class CoursModel extends Model
 	public function addCourse($name, $slug, $difficulty, $categorie, $summary)
 	{
 		$date = date("Y-m-d H:i:s");
-	    $sql = "INSERT INTO lessons VALUES(id, :name, :date_publication, :author, :categorie, :difficulty, :slug, NULL, :summary)";
+	    $sql = "INSERT INTO lessons VALUES(id, :name, :date_publication, :author, :categorie, :difficulty, :slug, image, :summary)";
 		$stmt = $this->connection->prepare($sql);
 		$stmt->bindParam(':name',$name);
 		$stmt->bindParam(':date_publication', $date);
