@@ -5,7 +5,7 @@
 
     <h3>Gestion des utilisateurs</h3>
 
-    <div class="table">
+    <div class="table table-users">
         <div class="table-head">
             <div class="table-head-item">Pseudo</div>
             <div class="table-head-item">Mail</div>

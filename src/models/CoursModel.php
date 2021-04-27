@@ -19,9 +19,10 @@ class CoursModel extends Model
 	
 	public function getCoursFullInfos() : mixed
     {
-        $sql = "SELECT lessons.id, lessons.name, lessons.date_publication, lessons.slug, users.username AS author, difficulties.name AS difficulty
+        $sql = "SELECT lessons.id, lessons.name, lessons.date_publication, lessons.slug, users.username AS author, difficulties.name AS difficulty, categories.name AS category 
 		FROM lessons INNER JOIN users ON users.id = lessons.author
-		INNER JOIN difficulties ON difficulties.id = lessons.difficulty";
+		INNER JOIN difficulties ON difficulties.id = lessons.difficulty
+		INNER JOIN categories ON lessons.category = categories.id";
         $query = $this->connection->query($sql);
         return $query->fetchAll();
     }
