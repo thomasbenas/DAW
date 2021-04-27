@@ -93,9 +93,14 @@ class AdminController extends Controller
                 ]);
                 break;
             case 'chapitre':
-                    $this->render('admin', 'ajoutChapitre', [
-                        "adminCapacity" => $this,
-                    ]);
+                    if (!empty($_POST['course_name']) || !empty($_POST['name'])) {
+                        $this->render('admin', 'ajoutChapitre', [
+                            "adminCapacity" => $this,
+                        ]);
+                    } else{
+                        $error = new ErrorController();
+                        $error->error_403();
+                    }
                 break;
            default:
                 $error = new ErrorController();
