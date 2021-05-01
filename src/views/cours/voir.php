@@ -1,13 +1,13 @@
 <div class="container">
-    <div class="intro-cours ">
-        <h1 class="titre-cours"><?= $courses['name'] ?></h1> 
-    </div>    
-    <p>Progrès global</p> 
-        <?php /** @var array $courses */
-        foreach ($chapitres as $chapitre): ?> 
-            <div class="chapitre">
-                <img class="logo" src="http://localhost/DAW/assets/images/flag.svg">
-                <p><a href="//<?= HOST . '/' . FOLDER_ROOT ?>/cours/chapter/<?= $chapitre['slug'] ?>"><?= $chapitre['name'] ?></a></p>
-            </div>
-        <?php endforeach ?>
+    <h2><?= $courses['name'] ?></h2> 
+    
+        <div class="chapter-index">
+            <h3>Chapitres</h3>
+            <?php /** @var array $courses */
+            foreach ($chapitres as $chapitre): ?> 
+                <div class="list-card chapter-index-ele">
+                    <span><a href="//<?= HOST . '/' . FOLDER_ROOT ?>/cours/chapter/<?= $chapitre['slug'] ?>"><?= $chapitre['name'] ?></a></span>
+                </div>
+            <?php endforeach ?>
+        </div>
 </div>
