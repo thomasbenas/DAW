@@ -25,7 +25,7 @@ class QuizModel extends Model
 
     public function GetAllByCategoryNameSlug(string $slug)
 	{
-		$Sql = 'SELECT linkXML,name as category,slug FROM QCM,categories WHERE QCM.category = categories.id AND categories.slug = :slug;';
+		$Sql = 'SELECT linkXML,name as category,slug, category as categoryNumber FROM QCM,categories WHERE QCM.category = categories.id AND categories.slug = :slug;';
         $Request = $this->connection->prepare($Sql);
 		$Request->bindParam(':slug', $slug);
 		$Request->execute();

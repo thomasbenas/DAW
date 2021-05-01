@@ -47,3 +47,10 @@ function switchTheme(e) {
 
 toggleSwitch.addEventListener('change', switchTheme, false);
 
+
+function checkQuiz(){
+  var reponses = document.getElementsByClassName("check");
+  for (i = 0; i < reponses.length; i++)
+    if(reponses[i].value == 1)
+      reponses[i].checked = true;
+}
