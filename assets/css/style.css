@@ -113,7 +113,7 @@ img{
     color: var(--main-color);
 }
 
-.button-fill > .button-content > a, .button-fill > a{
+.button-fill > .button-content > a, .button-fill > a, .button-content{
     color: var(--text-color-contrast);
 }
 
