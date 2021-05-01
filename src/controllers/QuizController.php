@@ -27,6 +27,23 @@ class QuizController extends Controller
         
         $this->render('quiz', 'voir', [
             'quizs'=>$quizs,
+            'quizProcess'=>$this,
         ]);
+    }
+
+    public function updateAbilityUser($score, $categoryId){
+        $model = "quiz";
+        $this->loadModel($model);
+        
+        $userId = $_SESSION['id'];
+    
+        if($score <= 4)
+                $newDifficulty = 1;
+        else if($score <= 7)
+                $newDifficulty = 2;
+        else
+                $newDifficulty = 3;
+
+        $quizs = $this->$model->updateAbilityUser($newDifficulty, $userId, $categoryId);
     }
 }

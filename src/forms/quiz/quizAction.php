@@ -4,6 +4,13 @@
             $total += $value;
     ?>
 
-    <p>Votre score est de <?= $total ?>.</p>
+    <div id="toast"></div>
 
-<?php endif; ?>
+    <script>
+        window.onload = function() {
+            ToastWithoutRediction('Votre score est de <?= $total . "/" . $numberQuestions ?>');
+            correctionQCM();
+        };
+    </script>
+
+<?php $quizProcess-> updateAbilityUser($total, $quizs['categoryNumber']); endif; ?>

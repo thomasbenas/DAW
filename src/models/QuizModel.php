@@ -32,4 +32,16 @@ class QuizModel extends Model
 		return $Request->fetch(\PDO::FETCH_ASSOC);
 	}
 
+	public function updateAbilityUser($newDifficulty, $userId, $categoryId){
+		$sql = "INSERT INTO abilities VALUES (:user_id, :category_id, :new_difficulty)
+				ON DUPLICATE KEY UPDATE difficulty = :new_difficulty";
+		$stmt = $query = $this->connection->prepare($sql);
+		$stmt->bindParam(':user_id', $userId, \PDO::PARAM_INT);
+		$stmt->bindParam(':category_id', $categoryId, \PDO::PARAM_INT);
+		$stmt->bindParam(':new_difficulty', $newDifficulty, \PDO::PARAM_INT);
+		$stmt->execute();
+	}
+
+	
+
 }

@@ -6,11 +6,11 @@
 <form action="//<?= HOST . '/' . FOLDER_ROOT ?>/quiz/voir/<?= $quizs['slug']?>" method="post" class="quiz">
     <?php foreach($quizz->question as $question): $numberQuestions++;?>
         <div class="blockQuestion">
-            <div class="question"><?='Question ' . $numberQuestions . " : " . $question->libelle?></div>
+            <div class="question"><?='Question ' . $numberQuestions . " -- " . $question->libelle?></div>
             <?php foreach($question->reponse as $reponse) :?>
-                <div class="reponse"><input class="check" required type="radio" name="<?= $question['numero']?>" value="<?=$reponse['point']?>"><?=$reponse?></div>
+                <div class="reponse"><input class="check" type="radio" name="<?= "question".$numberQuestions?>" value="<?=$reponse['point']?>"><?=$reponse?></div>
             <?php endforeach?>
         </div>
     <?php endforeach ?>
-    <input class="button-fill" type="submit" onclick="checkQuiz()" name="validerQuiz" value="Terminer le quiz">
+    <button id="submit" class="button-fill button-qcm" type="submit" name="validerQuiz"><div class="button-content">Terminer le quiz</div></button>
 </form>

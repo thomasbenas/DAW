@@ -1,10 +1,13 @@
 
 <div class="container">
-    <h2>Quiz <?= $quizs['category'] ?></h2>
-
-    <?php require_once(ROOT.'src/forms/quiz/quizForm.php') ?>
-
-    <?php require_once(ROOT.'src/forms/quiz/quizAction.php') ?>
+    <div class="quiz-title">
+        <h2>Quiz <?= $quizs['category'] ?></h2>
+        <button id="quiz-reset" class="button-fill button-qcm" name="resetQuiz"><a class="button-content" href="//<?= HOST . '/' .FOLDER_ROOT ?>/quiz/voir/<?= $quizs['slug'] ?>">Recommencer</a></button>
+    </div>
+    <div class="quiz-form">
+        <?php require_once(ROOT.'src/forms/quiz/quizForm.php') ?>
+        <?php require_once(ROOT.'src/forms/quiz/quizAction.php') ?> 
+    </div>
 </div>
 
 
