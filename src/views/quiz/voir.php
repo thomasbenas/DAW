@@ -16,30 +16,26 @@
         <?php endforeach ?>
         <input class="button-fill" type="submit" name="validerQuiz" value="Terminer le quiz">
     </form>
-    <?php 
-    if(isset($_POST['validerQuiz']))
-    {
-        $total = 0;
-        foreach ($_POST as $key => $value){
-            if (isset($key) and $key != "validerQuiz"){
-                    $total += $value;
-            }
-        }
-        if ($total >= 0){
-            echo "Votre score est de ".$total. ". Voici les bonnes réponses.";
-        }else{
-            echo "erreur";
-        }
-        echo '<script type="text/javascript">
-        var reponses = document.getElementsByClassName("reponse");
-        for (i = 0; i < reponses.length; i++) {
-            if(reponses[i].value == 1){
-                reponses[i].checked = true;
-            }
-          }
-          </script>';
-    } 
-    ?>
+    
+    <?php if(isset($_POST['validerQuiz'])): $total = 0; ?>
+        <?php foreach ($_POST as $key => $value)
+            if (isset($key) and $key != "validerQuiz")
+                $total += $value;
+        ?>
+
+        <?php if($total >= 0): ?>
+            <p>Votre score est de <?= $total ?>. Voici les bonnes réponses.</p>
+        <?php else: ?>
+            <p>Erreur</p>
+        <?php endif; ?>
+
+        <script type="text/javascript">
+            var reponses = document.getElementsByClassName("reponse");
+            for (i = 0; i < reponses.length; i++)
+                if(reponses[i].value == 1)
+                    reponses[i].checked = true;
+        </script>
+    <?php endif; ?>
 </div>
 
 
