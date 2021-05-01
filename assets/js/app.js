@@ -23,6 +23,12 @@ function LoginLogoutMessage(text){
    },2000);
  }
 
+ function ToastWithoutRediction(text){
+  var x=document.getElementById("toast");
+  x.classList.add("show");
+  x.innerHTML=text;
+}
+
 const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
 const currentTheme = localStorage.getItem('theme');
 
