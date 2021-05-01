@@ -520,6 +520,22 @@ img{
     border: 1px solid #CCC;
 }
 
+/* /// QUIZ /// */
+.question{
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+   
+.reponse{
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 12px;
+}
+
+.blockQuestion{
+    margin-bottom: 50px;
+}
+
 
 /* /// RESPONSIVE /// */
 
@@ -615,3 +631,4 @@ img{
         width: 250px;
     }
 }
+
