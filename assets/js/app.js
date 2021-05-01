@@ -50,13 +50,16 @@ function switchTheme(e) {
     localStorage.setItem('theme', 'light');
   }    
 }
-
 toggleSwitch.addEventListener('change', switchTheme, false);
 
-
-function checkQuiz(){
+function correctionQCM(){
   var reponses = document.getElementsByClassName("check");
+  var contain = document.getElementsByClassName("reponse");
   for (i = 0; i < reponses.length; i++)
-    if(reponses[i].value == 1)
-      reponses[i].checked = true;
+  if(reponses[i].value == 1){
+      reponses[i].checked = true;  
+      contain[i].style.backgroundColor = "#00C49A";    
+  }
+
+  document.getElementById('submit').hidden = true;
 }
