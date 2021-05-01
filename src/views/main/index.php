@@ -1,22 +1,24 @@
-<div class="presentation-index">
-    <div class="selection-cours">
-        <p>Notre selection de cours pour vous</p>
+<?php if (isset($_SESSION['username'])): ?>
+    <div class="presentation-index">
+        <div class="selection-cours">
+            <p>Notre selection de cours pour vous</p>
 
-        <div class="buttons">
-            <div class="button">
-                <div class="button-content"><a href="#">Un cours</a></div>
-            </div>
+            <div class="buttons">
+                <div class="button">
+                    <div class="button-content"><a href="#">Un cours</a></div>
+                </div>
 
-            <div class="button">
-                <div class="button-content"><a href="#">Un autre cours</a></div>
-            </div>
+                <div class="button">
+                    <div class="button-content"><a href="#">Un autre cours</a></div>
+                </div>
 
-            <div class="button">
-                <div class="button-content"><a href="#">Encore un autre cours</a></div>
+                <div class="button">
+                    <div class="button-content"><a href="#">Encore un autre cours</a></div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+<?php endif; ?>
 
 <div class="container">
     <div class="lists">

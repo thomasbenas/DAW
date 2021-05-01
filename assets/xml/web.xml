@@ -1,0 +1,62 @@
+<quizz>
+ <question>
+   <libelle>Qu'est que SCRUM ?</libelle>
+    <reponse point="1"> Une méthode de gestion de projet AGILE </reponse>
+    <reponse point="0"> Une méthode innovante pour prendre des rapides en kayak</reponse>
+    <reponse point="0"> Une méthode de gestion de projet rigide </reponse>
+ </question>
+ <question>
+   <libelle>PHP est un langage :</libelle>
+    <reponse point="1"> ... côté serveur </reponse>
+    <reponse point="0"> ... côté client </reponse>
+    <reponse point="0"> ... client / serveur </reponse>
+ </question>
+ <question>
+   <libelle >Bonjour je suis la question 1</libelle>
+    <reponse point="0"> 0 </reponse>
+    <reponse point="1"> 1 </reponse>
+    <reponse point="0"> 0 </reponse>
+ </question>
+ <question>
+   <libelle>Bonjour je suis la question 2</libelle>
+    <reponse point="0"> 500 </reponse>
+    <reponse point="1"> 1000 </reponse>
+    <reponse point="0"> 200 </reponse>
+ </question>
+ <question>
+   <libelle>Bonjour je suis la question 1</libelle>
+    <reponse point="0"> 0 </reponse>
+    <reponse point="1"> 1 </reponse>
+    <reponse point="0"> 0 </reponse>
+ </question>
+ <question>
+   <libelle>Bonjour je suis la question 2</libelle>
+    <reponse point="0"> 500 </reponse>
+    <reponse point="1"> 1000 </reponse>
+    <reponse point="0"> 200 </reponse>
+ </question>
+ <question>
+   <libelle>Bonjour je suis la question 1</libelle>
+    <reponse point="0"> 0 </reponse>
+    <reponse point="1"> 1 </reponse>
+    <reponse point="0"> 0 </reponse>
+ </question>
+ <question>
+   <libelle >Bonjour je suis la question 2</libelle>
+    <reponse point="0"> 500 </reponse>
+    <reponse point="1"> 1000 </reponse>
+    <reponse point="0"> 200 </reponse>
+ </question>
+ <question>
+   <libelle>Bonjour je suis la question 1</libelle>
+    <reponse point="0"> 0 </reponse>
+    <reponse point="1"> 1 </reponse>
+    <reponse point="0"> 0 </reponse>
+ </question>
+ <question>
+   <libelle>Bonjour je suis la question 2</libelle>
+    <reponse point="0"> 500 </reponse>
+    <reponse point="1"> 1000 </reponse>
+    <reponse point="0"> 200 </reponse>
+ </question>
+</quizz>

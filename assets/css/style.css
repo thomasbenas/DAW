@@ -113,7 +113,7 @@ img{
     color: var(--main-color);
 }
 
-.button-fill > .button-content > a, .button-fill > a{
+.button-fill > .button-content > a, .button-fill > a, .button-content{
     color: var(--text-color-contrast);
 }
 
@@ -189,7 +189,7 @@ img{
     margin-top: 20px;
 }
 
-.lists-grid{
+.list-cards{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 40px;
@@ -211,6 +211,28 @@ img{
     height: 300px;
 }
 
+.list-card{
+    background-color: white;
+    padding: 40px;
+    display: block;
+    border-radius: 10px;
+}
+
+.list-card > img{
+    height: 200px;
+}
+
+.list-card > .list-text > span{
+    text-align: justify;
+}
+
+.list-card > .ability{
+    align-items: center;
+}
+
+.list-text > h2 > a{
+    color: #212121;
+}
 
 /* /// SWITCH BUTTON /// */
 .switch {
@@ -334,8 +356,7 @@ img{
 
 }
 
-/* /// INDEX COURS /// */
-
+/* /// INDEX /// */
 .presentation-index{
     background-color: var(--main-color-contrast);
     padding: 15px 10px;
@@ -352,6 +373,50 @@ img{
     color: var(--text-color-main);
 }
 
+
+
+/* /// VUE COURS /// */
+.course-chapter-image{
+    height: 80px;
+}
+
+.chapter-layout{
+    display: flex;
+    flex-direction: row;
+}
+
+.chapter-aside{
+    background-color: var(--tertiary-color);
+    color: var(--text-color-contrast);
+    padding-right: 30px;
+}
+
+.chapter-aside-ele{
+  display: grid;
+  grid-template-columns: 0.15fr 0.85fr;
+  align-items: end;
+  padding: 10px;
+  min-width: 300px;
+}
+
+.chapter-content{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.chapter-content > h2{
+    text-align: center;
+}
+
+.chapter-index{
+    padding: 20px
+}
+
+.chapter-index-ele{
+    margin-bottom: 20px;
+}
 /* /// CONNEXION / INSCRIPTION /// */
 
 .panel{
@@ -364,7 +429,6 @@ img{
     background-color: var(--tertiary-color);
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 .aside > img{
@@ -529,6 +593,39 @@ img{
     border: 1px solid #CCC;
 }
 
+/* /// QUIZ /// */
+.question{
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+   
+.reponse{
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 12px;
+}
+
+.blockQuestion{
+    margin-bottom: 50px;
+}
+
+.button-qcm{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.quiz-title{
+    display: flex;
+    align-items: center;
+}
+
+.quiz-title > h2, .quiz-title > #reset-quiz{
+    margin-right: 10px;
+}
+
+.quiz-form{
+    padding: 20px;
+}
 
 /* /// RESPONSIVE /// */
 
@@ -624,66 +721,4 @@ img{
         width: 250px;
     }
 }
-/* /// VUE COURS /// */
-.chapitre{
-    display: flex;
-    padding-bottom: 30px;
-    align-items: center;
-    height: 50px;
-    font-size: 0.8em;
-}
-.intro-cours{
-    display: flex;
-}
-.logo{
-    width : 80px;
-    height: 80px;
-}
-.image-cours{
-    height: 200px;
-    width: 300px;
-    object-fit: contain;
-}
 
-.list-cours{
-    background-color: white;
-    padding: 40px;
-    display: block;
-    border-radius: 10px;
-}
-
-.list-cours > img{
-    height: 200px;
-}
-
-.list-cours > .list-text > h3{
-    text-align: center;
-}
-
-/* /// Marge / Chapitre  /// */
-.pagechapitre{
-    display: grid;
-    grid-template-columns: 30% 70%;
-}
-.margechapitre{
-    display: flex;
-    padding-top: 50px;
-    height: 100vh;
-    flex-direction: column;
-    justify-content: center;
-    border-right: solid 3px var(--main-color-dark);
-}
-.contenuchapitre{
-    padding-top: 60px;
-    padding-left: 50px;
-}
-.buttonchapter{
-    border: solid 1px var(--main-color-dark);
-    margin: 0 10px;
-    background-color: #219EBC;
-}
-.buttonchapter:hover {
-    background-color: var(--main-color-dark);
-    color: var(--text-color-on-dark);
-    cursor: pointer;
-}

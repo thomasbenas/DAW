@@ -23,6 +23,12 @@ function LoginLogoutMessage(text){
    },2000);
  }
 
+ function ToastWithoutRediction(text){
+  var x=document.getElementById("toast");
+  x.classList.add("show");
+  x.innerHTML=text;
+}
+
 const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
 const currentTheme = localStorage.getItem('theme');
 
@@ -44,6 +50,16 @@ function switchTheme(e) {
     localStorage.setItem('theme', 'light');
   }    
 }
-
 toggleSwitch.addEventListener('change', switchTheme, false);
 
+function correctionQCM(){
+  var reponses = document.getElementsByClassName("check");
+  var contain = document.getElementsByClassName("reponse");
+  for (i = 0; i < reponses.length; i++)
+  if(reponses[i].value == 1){
+      reponses[i].checked = true;  
+      contain[i].style.backgroundColor = "#00C49A";    
+  }
+
+  document.getElementById('submit').hidden = true;
+}
