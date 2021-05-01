@@ -16,16 +16,26 @@ class QuizModel extends Model
         $this->table = "QCM";
         $this->connection();
     }
-    public function GetAllByCategoryName()
+    public function getAllByCategoryName()
 	{
-		$Sql = 'SELECT linkXML,name as category,slug FROM QCM,categories WHERE QCM.category = categories.id;';
-		$query = $this->connection->query($Sql);
+		$sql = 'SELECT linkXML,name AS category,slug FROM QCM,categories WHERE QCM.category = categories.id;';
+		$query = $this->connection->query($sql);
 		return $query->fetchAll();
 	}
 
-    public function GetAllByCategoryNameSlug(string $slug)
+	public function getUserAbility($id_user){
+		$sql = "SELECT difficulties.name
+		FROM difficulties INNER JOIN abilities ON abilities.difficulty = difficulties.id
+		INNER JOIN users ON users.id = abilities.user
+		WHERE users.id = $id_user";
+        $query = $this->connection->query($sql);
+
+		return $query->fetchColumn();;
+	}
+
+    public function getAllByCategoryNameSlug(string $slug)
 	{
-		$Sql = 'SELECT linkXML,name as category,slug, category as categoryNumber FROM QCM,categories WHERE QCM.category = categories.id AND categories.slug = :slug;';
+		$Sql = 'SELECT linkXML,name AS category,slug, category AS categoryNumber FROM QCM,categories WHERE QCM.category = categories.id AND categories.slug = :slug;';
         $Request = $this->connection->prepare($Sql);
 		$Request->bindParam(':slug', $slug);
 		$Request->execute();
