@@ -1,0 +1,14 @@
+<quizz>
+ <question numero="question1" >
+   <libelle >Bonjour je suis la question 1</libelle>
+    <reponse point="0"> 0 </reponse>
+    <reponse point="1"> 1 </reponse>
+    <reponse point="0"> 0 </reponse>
+ </question>
+ <question numero="question2" >
+   <libelle >Bonjour je suis la question 2</libelle>
+    <reponse point="0"> 500 </reponse>
+    <reponse point="1"> 1000 </reponse>
+    <reponse point="0"> 200 </reponse>
+ </question>
+</quizz>
