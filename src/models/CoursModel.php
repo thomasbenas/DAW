@@ -10,12 +10,12 @@ use app\src\core\Model;
 class CoursModel extends Model
 {
 
-	public function __construct()
-	{
-		parent::__construct();
+    public function __construct()
+    {
+        parent::__construct();
 		$this->table = "lessons";
-		$this->connection();
-	}
+        $this->connection();
+    }   
 
 	/**
 	* Recuperation de l'id de la catégorie avec le nom
@@ -23,13 +23,11 @@ class CoursModel extends Model
 	* @param string $name
 	* @return int
 	*/
-	public function GetCategorieIdD(string $name) : int
+	public function getCategorieIdD(string $name) : int
 	{
-		$Sql = 'SELECT id FROM categories WHERE name = :name;';
-		$Request = $this->connection->prepare($Sql);
-		$Request->bindParam(':name', $name);
-		$Request->execute();
-		return $Request->fetch(\PDO::FETCH_ASSOC);
+		$sql = "SELECT `id` FROM `categories` WHERE `name` = '".$name."'";
+		$query = $this->connection->query($sql);
+		return $query->fetch(\PDO::FETCH_ASSOC);
 	}
 
 	/**
@@ -38,13 +36,11 @@ class CoursModel extends Model
 	* @param string $name
 	* @return int
 	*/
-	public function GetDifficulteID(string $name) : int
+	public function getDifficulteID(string $name) : int
 	{
-		$Sql = 'SELECT id FROM difficulties WHERE name = :name;';
-		$Request = $this->connection->prepare($Sql);
-		$Request->bindParam(':name', $name);
-		$Request->execute();
-		return $Request->fetch(\PDO::FETCH_ASSOC);
+		$sql = "SELECT `id` FROM `difficulties` WHERE `name` = '".$name."'";
+		$query = $this->connection->query($sql);
+		return $query->fetch(\PDO::FETCH_ASSOC);
 	}
 
 	/**
@@ -53,14 +49,13 @@ class CoursModel extends Model
 	* @param  int $user
 	* @param  int $lesson
 	*/
-	public function AjoutCoursSuivis(int $user, int $lesson)
+	public function ajoutCoursSuivis(int $user, int $lesson)
 	{
-		$Sql = 'INSERT INTO lessons_taken (user, lesson, date_start)
-				VALUES (:user, :lesson, now());';
-		$Request = $this->connection->prepare($Sql);
-		$Request->bindParam(':user', $user);
-		$Request->bindParam(':lesson', $lesson);
-		$Request->execute();
+		$sql = "INSERT INTO `lessons_taken` (`user`, `lesson`, `date_start`, `status`)
+				VALUES (':user', ':lesson', now(), '1');";
+		$stmt = $this->connection->prepare($sql);
+		$stmt->bindParam(':user',$user);
+		$stmt->bindParam(':lesson',$lesson);
 	}
 
 	/**
@@ -70,15 +65,55 @@ class CoursModel extends Model
 	* @param int $chapitrePrecedent
 	* @return string
 	*/
-	public function GetContenuChapitreSuivant(int $lesson, int $chapitrePrecedent) : string
+	public function getContenuChapitreSuivant(int $lesson, int $chapitrePrecedent) : string
 	{
-		$NextChapter = $chapitrePrecedent + 1;
-		$Sql = 'SELECT content,lesson,ch_number FROM chapters
-				WHERE lesson = :lesson AND ch_number = :next;';
-		$Request = $this->connection->prepare($Sql);
-		$Request->bindParam(':lesson', $lesson);
-		$Request->bindParam(':next', $NextChapter);
-		$Request->execute();
-		return $Request->fetch(\PDO::FETCH_ASSOC);
+		$sql = "SELECT `content`, `lesson`, `ch_number` FROM `chapters` 
+				WHERE `lesson` = '".$lesson."' AND `ch_number` = '".$chapitrePrecedent."+1'";
+		$query = $this->connection->query($sql);
+		return $query->fetch(\PDO::FETCH_ASSOC);
+	}
+	/**
+	 * Récupération de tout les chapitres en fonction du cours.
+	 * 
+	 * @param string $slug 
+	 */
+	public function getAllChapitre(string $slug)
+	{
+		$sql = "SELECT chapters.name, chapters.slug FROM chapters,lessons WHERE lesson = lessons.id  AND lessons.slug = '"  . $slug . "'";
+		$query = $this->connection->query($sql);
+		return $query->fetchAll();
+	}
+	/**
+	 * Récupération d'un chapitre en fonction du slug.
+	 */
+	public function getChapitreBySlug(string $slug)
+	{
+		$sql = "select * from chapters where slug = '" .$slug . "'";
+		$query = $this->connection->query($sql);
+		return $query->fetch(\PDO::FETCH_ASSOC);
+	}
+
+	/**
+	 * Récupération de tout les chapitres en fonction du cours.
+	 * 
+	 * @param int $lesson ID du cours
+	 */
+	public function getAllChapitreLesson(int $lesson)
+	{
+		$sql = "SELECT * from chapters where lesson = '" . $lesson . "'"; 
+		$query = $this->connection->query($sql);
+		return $query->fetchAll();		
+
+	}
+	/**
+	 * Récupération des données d'un chapitre en fonction de son numéro.
+	 */
+	public function getChapitreNumber(int $number, int $lesson)
+	{
+
+		$sql = "SELECT * from chapters where ch_number = '" . $number . "' and lesson = '" .$lesson ."'";
+		$query = $this->connection->query($sql);
+		return $query->fetch(\PDO::FETCH_ASSOC);		
 	}
 }
+?>

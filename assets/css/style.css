@@ -186,6 +186,15 @@ img{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    margin-top: 20px;
+}
+
+.lists-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    row-gap: 40px;
+    margin-top: 30px;
 }
 
 .list{
@@ -325,7 +334,7 @@ img{
 
 }
 
-/* /// INDEX /// */
+/* /// INDEX COURS /// */
 
 .presentation-index{
     background-color: var(--main-color-contrast);
@@ -614,4 +623,67 @@ img{
     .form-inputs > input, .form-inputs > div > input{
         width: 250px;
     }
+}
+/* /// VUE COURS /// */
+.chapitre{
+    display: flex;
+    padding-bottom: 30px;
+    align-items: center;
+    height: 50px;
+    font-size: 0.8em;
+}
+.intro-cours{
+    display: flex;
+}
+.logo{
+    width : 80px;
+    height: 80px;
+}
+.image-cours{
+    height: 200px;
+    width: 300px;
+    object-fit: contain;
+}
+
+.list-cours{
+    background-color: white;
+    padding: 40px;
+    display: block;
+    border-radius: 10px;
+}
+
+.list-cours > img{
+    height: 200px;
+}
+
+.list-cours > .list-text > h3{
+    text-align: center;
+}
+
+/* /// Marge / Chapitre  /// */
+.pagechapitre{
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+.margechapitre{
+    display: flex;
+    padding-top: 50px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    border-right: solid 3px var(--main-color-dark);
+}
+.contenuchapitre{
+    padding-top: 60px;
+    padding-left: 50px;
+}
+.buttonchapter{
+    border: solid 1px var(--main-color-dark);
+    margin: 0 10px;
+    background-color: #219EBC;
+}
+.buttonchapter:hover {
+    background-color: var(--main-color-dark);
+    color: var(--text-color-on-dark);
+    cursor: pointer;
 }
