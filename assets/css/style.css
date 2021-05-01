@@ -536,6 +536,23 @@ img{
     margin-bottom: 50px;
 }
 
+.button-qcm{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.quiz-title{
+    display: flex;
+    align-items: center;
+}
+
+.quiz-title > h2, .quiz-title > #reset-quiz{
+    margin-right: 10px;
+}
+
+.quiz-form{
+    padding: 20px;
+}
 
 /* /// RESPONSIVE /// */
 
