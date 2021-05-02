@@ -690,6 +690,17 @@ img{
     padding: 20px;
 }
 
+/* /// FORUM /// */
+.category-card{
+    border: 1px #212121 solid;
+    padding: 20px;
+    margin: 15px;
+}
+
+.category-card > h3{
+    margin-top: 0;
+}
+
 /* /// RESPONSIVE /// */
 
 @media (max-width: 1070px) {
