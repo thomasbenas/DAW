@@ -22,6 +22,7 @@ Projet L3 Développement d'applications web
 * Gestion des erreurs (page 404)
 * Cours en ligne
 * Quiz avec correction, score et niveau utilisateur
+* Forum
 * Inscription & et connexion des utilisateurs
 * Deux thèmes
 
