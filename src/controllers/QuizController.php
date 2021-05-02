@@ -9,8 +9,11 @@ use app\src\core\controller;
  */
 class QuizController extends Controller
 {
+    use userVerificationTrait;
 
     public function index(){
+        $this->isConnectedUser();
+
         $model = "quiz";
         $this->loadModel($model);
         $quizs = $this->$model->getAllByCategoryName();
@@ -25,6 +28,8 @@ class QuizController extends Controller
     }
 
     public function voir(string $slug){
+        $this->isConnectedUser();
+
         $model = "quiz";
         $this->loadModel($model);
         $quizs = $this->$model->getAllByCategoryNameSlug($slug);

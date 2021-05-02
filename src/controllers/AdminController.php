@@ -9,16 +9,10 @@ use app\src\core\controller;
  */
 class AdminController extends Controller
 {
-    private function isAdmin(){
-        $isAdmin = (!empty($_SESSION)) ? $_SESSION['admin'] : false;
-        if(!$isAdmin){
-            $error = new ErrorController();
-            $error->error_403();
-        }
-    }
+    use userVerificationTrait;
 
     public function index(){
-        $this->isAdmin();
+        $this->isAdminUser();
 
         $userModel = "user";
         $this->loadModel($userModel);
@@ -32,8 +26,10 @@ class AdminController extends Controller
         $this->loadModel($categoriesModel);
         $categoriesCount = $this->$categoriesModel->count();
 
-        $qcmCount = [];
-
+        $qcmModel = "quiz";
+        $this->loadModel($qcmModel);
+        $qcmCount = $this->$qcmModel->count();
+        
         $this->render('admin', 'index', [
             "usersCount" => (!empty($usersCount)) ? $usersCount[0] : "?",
             "coursCount" => (!empty($coursCount)) ? $coursCount[0] : "?",
@@ -43,7 +39,7 @@ class AdminController extends Controller
     }
 
     public function utilisateurs(){
-        $this->isAdmin();
+        $this->isAdminUser();
 
         $userModel = "user";
         $this->loadModel($userModel);
@@ -61,7 +57,7 @@ class AdminController extends Controller
     }
 
     public function cours(){
-        $this->isAdmin();
+        $this->isAdminUser();
 
         $coursModel = "cours";
         $this->loadModel($coursModel);
@@ -74,7 +70,7 @@ class AdminController extends Controller
     }
 
     public function ajouter(string $slug){
-        $this->isAdmin();
+      $this->isAdminUser();
         
        switch ($slug) {
            case 'cours':
