@@ -4,6 +4,8 @@
 
 	class ForumController extends Controller
 	{
+		use userVerificationTrait;
+
 		public function __construct()
 		{
 			parent::__construct();
@@ -14,6 +16,7 @@
 
 		public function index()
 		{
+			$this->isConnectedUser();
 			$tab = array();
 			$categories = $this->Category->GetAll();
 			foreach ($categories as $category) {
@@ -31,6 +34,7 @@
 
 		public function categorie(string $slug)
 		{
+			$this->isConnectedUser();
 			$ctg = $this->Category->GetBySlug($slug);
 			if ($ctg === false) {
 				(new ErrorController())->Error_404();
@@ -45,6 +49,7 @@
 		}
 		public function sujet(string $ctg_slug, string $sbj_slug)
 		{
+			$this->isConnectedUser();
 			$category = $this->Category->GetBySlug($ctg_slug);
 			if ($category === false) {
 				(new ErrorController())->Error_404();
@@ -66,6 +71,7 @@
 		}
 		public function interventions()
 		{
+			$this->isConnectedUser();
 			$subjects = $this->Subject->GetInterventions($_SESSION['id']);
 			$this->render('forum', 'interventions', ['subjects'=>$subjects]);
 		}
@@ -87,7 +93,7 @@
 					$slug = htmlentities($_POST['slug']);
 					$this->Subject->Add($_SESSION['id'], $ctg, $name, $slug);
 
-					header('location: //'.HOST.'/'.FOLDER_ROOT.'/forum/categorie/'.$ctg_slug);
+					header('location: //'.HOST.'/'.FOLDER_ROOT.'/forum');
 				}
 			}
 		}
@@ -113,6 +119,7 @@
 		 */
 		public function ajoutPost(string $ctg_slug, string $sbj_slug) : void
 		{
+			$this->isConnectedUser();
 			if (isset($_POST['content'])) {
 				$category = $this->Category->GetBySlug($ctg_slug);
 				if ($category === false) {

@@ -7,13 +7,13 @@
 				<?php foreach ($category['content'] as $subject): ?>
 					<li>
 						<a href="//<?= HOST . '/' . FOLDER_ROOT . '/forum/sujet/' . $category['infos']['slug'] . '/' . $subject['slug']; ?>">
-							<?= (!empty($category)) ? $subject['title'] : 'Aucun sujet disponible' ?>
+							<?= $subject['title'] ?>
 						</a>
 					</li>
 				<?php endforeach; ?>
 				<?= (empty($category['content'])) ? '<li>Aucun sujet disponible</li>' : NULL ?>
 			</ul>
-			<button class="button"><a  href="//<?= HOST . '/' . FOLDER_ROOT . '/forum/categorie/' . $category['infos']['slug']; ?>">Ajouter un sujet</a></button>
+			<button class="button-fill"><a  href="//<?= HOST . '/' . FOLDER_ROOT . '/forum/categorie/' . $category['infos']['slug']; ?>">Ajouter un sujet</a></button>
 		</div>
 	<?php endforeach; ?>
 </div>

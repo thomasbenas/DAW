@@ -22,7 +22,7 @@ class AdminController extends Controller
         $this->loadModel($coursModel);
         $coursCount = $this->$coursModel->count();
 
-        $categoriesModel = "categories";
+        $categoriesModel = "category";
         $this->loadModel($categoriesModel);
         $categoriesCount = $this->$categoriesModel->count();
 
@@ -78,7 +78,7 @@ class AdminController extends Controller
                 $this->loadModel($difficulteModel);
                 $difficulties = $this->$difficulteModel->getAll();
 
-                $categoriesModel = "categories";
+                $categoriesModel = "category";
                 $this->loadModel($categoriesModel);
                 $categories = $this->$categoriesModel->getAll();
 

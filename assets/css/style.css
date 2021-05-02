@@ -3,6 +3,7 @@
     --main-color-contrast:#DE9244;
     --text-color-main: #36393B;
     --text-color-contrast: #F0F0F0;
+    --text-header-color: #36393B;
     --background-color: #E0E0E0;
     --secondary-color: #88C0C2;
     --tertiary-color: #219EBC;
@@ -13,6 +14,7 @@
     --main-color-contrast:#36393B;
     --text-color-main: #E0E0E0;
     --text-color-contrast: #36393B;
+    --text-header-color: #f0f0f0;
     --background-color: #E0E0E0;
     --secondary-color: #88C0C2;
     --tertiary-color: #219EBC;
@@ -361,9 +363,10 @@ img{
 
 /* /// MENU /// */
 
-.page-nav-title{
+.page-nav-title , .page-nav-title > a{
     font-weight: 700;
-    font-size: 1.8em;
+    font-size: 1.2em;
+
 }
 
 .page-header{
@@ -385,6 +388,10 @@ img{
 .page-nav-block > .page-nav-item{
     padding: 0 20px;
 
+}
+
+.page-nav-title > a, .page-nav-block > .page-nav-item > a{
+    color: var(--text-header-color);
 }
 
 /* /// INDEX /// */
@@ -646,7 +653,7 @@ img{
     justify-content: flex-end;
 }
 
-.goBack{
+.goBack, .goBack > a{
     color: #212121;
     padding-bottom: 20px;
 }
@@ -699,6 +706,82 @@ img{
 
 .category-card > h3{
     margin-top: 0;
+}
+
+.category-card > ul > li{
+    list-style: none;
+    padding-bottom: 8px;
+}
+
+.category-card > ul > li:before{
+    display: inline-block;
+    align-items: center;
+    content: url("../images/forum.svg");
+    vertical-align: -50%;
+    width: 32px;
+    height: 32px;
+    padding-right: 3px;
+}
+
+.posts{
+    display: flex;
+    flex-direction: column;
+}
+
+.post{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-bottom: 30px;
+}
+
+
+
+.post-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #219EBC;
+    color: #ebebeb;
+    padding: 20px;
+}
+
+.post:nth-child(2n) > .post-header{
+    background-color: #00C49A;
+}
+
+.post-header-user-info > img{
+    height: 40px;
+}
+
+.post-header-user-info{
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.post-header-text{
+    font-weight: 600;
+}
+
+.post-content{
+    background-color: white;
+    padding: 10px 30px;
+}
+
+.post-form{
+    display: flex;
+    align-items: center;
+}
+
+.post-form > textarea{
+    flex: 1;
+    margin: 10px 0;
+    margin-right: 50px;
+}
+
+.post-form > input{
+    justify-self: center;
 }
 
 /* /// RESPONSIVE /// */
