@@ -88,7 +88,7 @@ abstract class Model
      */
     public function count() : array
     {
-        $sql = "SELECT COUNT(id) FROM " . $this->table;
+        $sql = "SELECT COUNT(*) FROM " . $this->table;
         $query = $this->connection->query($sql);
         return $query->fetch();
     }
