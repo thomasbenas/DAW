@@ -28,11 +28,17 @@ class AdminController extends Controller
         $this->loadModel($coursModel);
         $coursCount = $this->$coursModel->count();
 
-        //TODO modèles pour les catégories et les QCM
+        $categoriesModel = "categories";
+        $this->loadModel($categoriesModel);
+        $categoriesCount = $this->$categoriesModel->count();
+
+        $qcmCount = [];
 
         $this->render('admin', 'index', [
-            "usersCount" => $usersCount[0],
-            "coursCount" => $coursCount[0],
+            "usersCount" => (!empty($usersCount)) ? $usersCount[0] : "?",
+            "coursCount" => (!empty($coursCount)) ? $coursCount[0] : "?",
+            "categoriesCount" => (!empty($categoriesCount)) ? $categoriesCount[0] : "?",
+            "qcmCount" => (!empty($qcmCount)) ? $qcmCount[0] : "?",
         ]);
     }
 
@@ -52,6 +58,63 @@ class AdminController extends Controller
             "roles" => $roles,
             "adminCapacity" => $this,
         ]);
+    }
+
+    public function cours(){
+        $this->isAdmin();
+
+        $coursModel = "cours";
+        $this->loadModel($coursModel);
+        $courses = $this->$coursModel->getCoursFullInfos();
+
+        $this->render('admin', 'cours', [
+            "courses" => $courses,
+            "adminCapacity" => $this,
+        ]);
+    }
+
+    public function ajouter(string $slug){
+        $this->isAdmin();
+        
+       switch ($slug) {
+           case 'cours':
+                $difficulteModel = "difficulte";
+                $this->loadModel($difficulteModel);
+                $difficulties = $this->$difficulteModel->getAll();
+
+                $categoriesModel = "categories";
+                $this->loadModel($categoriesModel);
+                $categories = $this->$categoriesModel->getAll();
+
+                $this->render('admin', 'ajoutCours', [
+                    "difficulties" => $difficulties,
+                    "categories" => $categories,
+                    "adminCapacity" => $this,
+                ]);
+                break;
+            case 'chapitre':
+                    if (!empty($_POST['course_name']) || !empty($_POST['name'])) {
+                        $this->render('admin', 'ajoutChapitre', [
+                            "adminCapacity" => $this,
+                        ]);
+                    }else{
+                        $error = new ErrorController();
+                        $error->error_403();
+                    }
+                break;
+           default:
+                $error = new ErrorController();
+                $error->error_404();
+                break;
+       }
+    }
+
+    public function deleteCourse($id){
+        $coursModel = "cours";
+        $this->loadModel($coursModel);
+        $this->$coursModel->deleteUser($id);
+        $refresh = '//' . HOST . '/' .FOLDER_ROOT . '/admin/cours'; 
+        header('Location:'.$refresh);
     }
 
     public function deleteUser($id){
@@ -81,5 +144,18 @@ class AdminController extends Controller
         } else {
             $_GET['error'] = "Impossible de modifier le rôle de l'admin. Ajoutez un autre admin d'abord.";
         }
+    }
+
+    public function addCourse($name, $slug, $difficulty, $categories, $summary){
+        $coursModel = "cours";
+        $this->loadModel($coursModel);
+        $courses = $this->$coursModel->addCourse($name, $slug, $difficulty, $categories, $summary);
+        //TODO gérer les cours déjà existants
+    }
+
+    public function addChapter($lesson, $name, $slug, $content){
+        $coursModel = "cours";
+        $this->loadModel($coursModel);
+        $courses = $this->$coursModel->addChapter($lesson, $name, $slug, $content);
     }
 }

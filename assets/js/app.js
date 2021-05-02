@@ -12,14 +12,14 @@ var checkPassword = function() {
    
 }
 
-function LoginLogoutMessage(text){
+function toastMessage(text, location){
    var x=document.getElementById("toast");
    x.classList.add("show");
    x.innerHTML=text;
 
    setTimeout(function(){
      x.classList.remove("show");
-     window.location.href = '../';
+     window.location.href = location;
    },2000);
  }
 

@@ -114,6 +114,49 @@ class CoursModel extends Model
 		$sql = "SELECT * from chapters where ch_number = '" . $number . "' and lesson = '" .$lesson ."'";
 		$query = $this->connection->query($sql);
 		return $query->fetch(\PDO::FETCH_ASSOC);		
+		$this->connection();
+	}
+	
+	public function getCoursFullInfos() : mixed
+    {
+        $sql = "SELECT lessons.id, lessons.name, lessons.date_publication, lessons.slug, users.username AS author, difficulties.name AS difficulty, categories.name AS category 
+		FROM lessons INNER JOIN users ON users.id = lessons.author
+		INNER JOIN difficulties ON difficulties.id = lessons.difficulty
+		INNER JOIN categories ON lessons.category = categories.id";
+        $query = $this->connection->query($sql);
+        return $query->fetchAll();
+    }
+
+	public function addCourse($name, $slug, $difficulty, $categorie, $summary)
+	{
+		$date = date("Y-m-d H:i:s");
+	    $sql = "INSERT INTO lessons VALUES(id, :name, :date_publication, :author, :categorie, :difficulty, :slug, image, :summary)";
+		$stmt = $this->connection->prepare($sql);
+		$stmt->bindParam(':name',$name);
+		$stmt->bindParam(':date_publication', $date);
+		$stmt->bindParam(':author',$_SESSION['id']);
+		$stmt->bindParam(':categorie',$categorie);
+		$stmt->bindParam(':difficulty',$difficulty);
+		$stmt->bindParam(':slug',$slug);
+		$stmt->bindParam(':summary',$summary);
+		$stmt->execute();
+	}
+
+	public function addChapter($lesson, $name, $slug, $content){
+		$sql = "INSERT INTO chapters VALUES(id, :lesson, NULL, :name, :content, :slug)";
+		$stmt = $this->connection->prepare($sql);
+		$stmt->bindParam(':lesson', $lesson);
+		$stmt->bindParam(':name', $name);
+		$stmt->bindParam(':content',$content);
+		$stmt->bindParam(':slug',$slug);
+		$stmt->execute();
+	}
+
+	public function deleteUser($id){
+		$sql = "DELETE FROM lessons WHERE id = :lessons_id";
+		$stmt = $query = $this->connection->prepare($sql);
+		$stmt->bindParam(':lessons_id', $id, \PDO::PARAM_INT);
+		$stmt->execute();
 	}
 }
 ?>
