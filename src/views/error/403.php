@@ -2,7 +2,8 @@
     <div class="error">
         <div class="error_img"></div>
         <div class="error_text">
-            <span>Oups ! Vous n'avez pas accès à cette page</span>
+            <span>Oups ! Vous n'avez pas accès à cette page.</span>
+            <span><?= $message ?></span>
         </div>
     </div>
 </div>

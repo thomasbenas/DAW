@@ -45,5 +45,4 @@ abstract class Controller
         require_once(ROOT.'src/views/layout/base.php');
 
     }
-
 }
