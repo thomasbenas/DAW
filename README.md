@@ -20,6 +20,8 @@ Projet L3 Développement d'applications web
 * Réécriture d'URL
 * Architecture MVC
 * Gestion des erreurs (page 404)
+* Cours en ligne
+* Quiz avec correction, score et niveau utilisateur
 * Inscription & et connexion des utilisateurs
 * Deux thèmes
 
