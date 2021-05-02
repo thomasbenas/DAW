@@ -723,6 +723,10 @@ img{
     padding-right: 3px;
 }
 
+.category-card > ul > li > a{
+    color: #212121;
+}
+
 .posts{
     display: flex;
     flex-direction: column;
@@ -734,8 +738,6 @@ img{
     flex: 1;
     padding-bottom: 30px;
 }
-
-
 
 .post-header{
     display: flex;
