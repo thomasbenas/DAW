@@ -18,13 +18,17 @@ class QuizController extends Controller
         $this->loadModel($model);
         $quizs = $this->$model->getAllByCategoryName();
 
-        $abilty = $this->$model->getUserAbility($_SESSION['id']);
+        if(!empty($_SESSION['id'])){
+            $id_user =  $_SESSION['id'];
+            $abilty = $this->$model->getUserAbility($id_user);
+
+            $this->render('quiz', 'index', [
+                'quizs'=>$quizs,
+                'ability' => $abilty,
+                "ability" => (!empty($abilty)) ? $abilty : "Inconnu",
+            ]);
+        }
         
-        $this->render('quiz', 'index', [
-            'quizs'=>$quizs,
-            'ability' => $abilty,
-            "ability" => (!empty($abilty)) ? $abilty : "Inconnu",
-        ]);
     }
 
     public function voir(string $slug){
