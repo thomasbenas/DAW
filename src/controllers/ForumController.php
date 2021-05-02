@@ -16,7 +16,6 @@
 		{
 			$tab = array();
 			$categories = $this->Category->GetAll();
-			$cat = $this->Category->GetBySlug('PHP');
 			foreach ($categories as $category) {
 				$id = intval($category['id'], 10);
 				$subjects = $this->Subject->GetByCategory($id, 3);
@@ -25,7 +24,9 @@
 					'content' => $subjects
 				]);
 			}
-			$this->render('forum', 'index', ['data'=>$tab]);
+			$this->render('forum', 'index', [
+				'categories' => $tab
+			]);
 		}
 
 		public function categorie(string $slug)

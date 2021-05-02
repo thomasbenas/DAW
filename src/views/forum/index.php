@@ -1,14 +1,19 @@
-<div>
-	<?php foreach($data as $value): ?>
-		<div>
-			<h4><?= $value['infos']['name']; ?></h4>
-			<a href='//<?= HOST . '/' . FOLDER_ROOT . '/forum/categorie/' . $value['infos']['slug']; ?>'>Lien pour la categorie</a>
-			<?php foreach ($value['content'] as $subject): ?>
-				<div>
-					<h5><?= $subject['title']; ?></h5>
-					<a href='//<?= HOST . '/' . FOLDER_ROOT . '/forum/sujet/' . $value['infos']['slug'] . '/' . $subject['slug']; ?>'>Lien pour le sujet</a>
-				</div>
-			<?php endforeach; ?>
+<div class="container">
+	<h2>Les sujets par catégories</h2>
+	<?php foreach($categories as $category): ?>
+		<div class="category-card">
+			<h3><?= $category['infos']['name']; ?></h3>
+			<ul>	
+				<?php foreach ($category['content'] as $subject): ?>
+					<li>
+						<a href="//<?= HOST . '/' . FOLDER_ROOT . '/forum/sujet/' . $category['infos']['slug'] . '/' . $subject['slug']; ?>">
+							<?= (!empty($category)) ? $subject['title'] : 'Aucun sujet disponible' ?>
+						</a>
+					</li>
+				<?php endforeach; ?>
+				<?= (empty($category['content'])) ? '<li>Aucun sujet disponible</li>' : NULL ?>
+			</ul>
+			<button class="button"><a  href="//<?= HOST . '/' . FOLDER_ROOT . '/forum/categorie/' . $category['infos']['slug']; ?>">Ajouter un sujet</a></button>
 		</div>
 	<?php endforeach; ?>
 </div>

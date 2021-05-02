@@ -22,7 +22,11 @@
 		 */
 		public function GetBySubject(int $sbj)
 		{
-			$sql = 'SELECT * FROM posts WHERE subject = ? ORDER BY date';
+			$sql = "SELECT title, subject, posts.id, content, date, author, users.username AS author_name
+			FROM users 
+			INNER JOIN posts ON posts.author = users.id 
+			WHERE subject = ? 
+			ORDER BY date";
 			$request = $this->connection->prepare($sql);
 			$request->execute(array($sbj));
 			return $request->fetchAll(\PDO::FETCH_ASSOC);
