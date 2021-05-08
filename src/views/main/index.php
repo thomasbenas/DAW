@@ -1,20 +1,15 @@
-<?php if (isset($_SESSION['username'])): ?>
+<?php if (isset($_SESSION['username'])&&!empty($courses)): ?>
     <div class="presentation-index">
         <div class="selection-cours">
             <p>Notre selection de cours pour vous</p>
 
             <div class="buttons">
-                <div class="button-fill">
-                    <div class="button-content"><a href="#">Un cours</a></div>
-                </div>
-
-                <div class="button-fill">
-                    <div class="button-content"><a href="#">Un autre cours</a></div>
-                </div>
-
-                <div class="button-fill">
-                    <div class="button-content"><a href="#">Encore un autre cours</a></div>
-                </div>
+				<?php /** @var array $courses */
+					foreach ($courses as $cours): ?> 
+					<div class="button-fill">
+						<div class="button-content"><a href="cours/voir/<?= $cours['slug'] ?>"><?= $cours['name'] ?></a></div>
+					</div>
+				<?php endforeach ?>
             </div>
         </div>
     </div>

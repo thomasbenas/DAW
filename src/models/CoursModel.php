@@ -158,5 +158,33 @@ class CoursModel extends Model
 		$stmt->bindParam(':lessons_id', $id, \PDO::PARAM_INT);
 		$stmt->execute();
 	}
+	/**
+	 * 5 recommendations pour l'utilisateur possédant l'userID donné
+	 * 
+	 * @param int $userID id de l'utilisateur
+	 */
+	public function getRecommendations(int $userID)
+	{
+		$sql = 
+		"SELECT * 
+		FROM lessons l 
+		WHERE EXISTS (
+		SELECT * 
+		FROM abilities a 
+		WHERE l.category = a.category 
+		AND l.difficulty = a.difficulty 
+		AND user = '" . $userID . "'
+		)
+		AND NOT EXISTS (
+		SELECT * 
+		FROM lessons_taken lt 
+		WHERE l.id = lt.lesson 
+		AND user = '" . $userID . "'
+		)
+		LIMIT 5
+		";
+		$query = $this->connection->query($sql);
+		return $query->fetchAll();
+	}
 }
 ?>
