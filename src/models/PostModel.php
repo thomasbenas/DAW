@@ -22,7 +22,7 @@
 		 */
 		public function GetBySubject(int $sbj)
 		{
-			$sql = "SELECT title, subject, posts.id, content, date, author, users.username AS author_name
+			$sql = "SELECT subject, posts.id, content, date, author, users.username AS author_name
 			FROM users 
 			INNER JOIN posts ON posts.author = users.id 
 			WHERE subject = ? 
