@@ -12,51 +12,47 @@
     <reponse point="0"> ... client / serveur </reponse>
  </question>
  <question>
-   <libelle >Bonjour je suis la question 1</libelle>
-    <reponse point="0"> 0 </reponse>
-    <reponse point="1"> 1 </reponse>
-    <reponse point="0"> 0 </reponse>
+  <libelle>PHP est un langage :</libelle>
+  <reponse point="1"> ... web</reponse>
+  <reponse point="0"> ... logiciel</reponse>
+  <reponse point="0"> ... les deux </reponse>
  </question>
  <question>
-   <libelle>Bonjour je suis la question 2</libelle>
-    <reponse point="0"> 500 </reponse>
-    <reponse point="1"> 1000 </reponse>
-    <reponse point="0"> 200 </reponse>
+  <libelle>Pour interpréter du PHP on a besoin d'un serveur ?</libelle>
+  <reponse point="1">vrai</reponse>
+  <reponse point="0">faux</reponse>
  </question>
  <question>
-   <libelle>Bonjour je suis la question 1</libelle>
-    <reponse point="0"> 0 </reponse>
-    <reponse point="1"> 1 </reponse>
-    <reponse point="0"> 0 </reponse>
+  <libelle>HTML est un langage de programmation ?</libelle>
+  <reponse point="0">vrai</reponse>
+  <reponse point="1">faux</reponse>
  </question>
  <question>
-   <libelle>Bonjour je suis la question 2</libelle>
-    <reponse point="0"> 500 </reponse>
-    <reponse point="1"> 1000 </reponse>
-    <reponse point="0"> 200 </reponse>
+ <libelle>CSS est un langage de programmation ?</libelle>
+ <reponse point="0">vrai</reponse>
+ <reponse point="1">faux</reponse>
+</question>
+ <question>
+  <libelle>JS peut être désactivé ?</libelle>
+  <reponse point="1">vrai</reponse>
+  <reponse point="0">faux</reponse>
  </question>
  <question>
-   <libelle>Bonjour je suis la question 1</libelle>
-    <reponse point="0"> 0 </reponse>
-    <reponse point="1"> 1 </reponse>
-    <reponse point="0"> 0 </reponse>
+  <libelle>HTTP est :</libelle>
+  <reponse point="0">... un langage de programmation simple</reponse>
+  <reponse point="1">... un protocole de communication</reponse>
+  <reponse point="0">... une librairie de PHP</reponse>
  </question>
  <question>
-   <libelle >Bonjour je suis la question 2</libelle>
-    <reponse point="0"> 500 </reponse>
-    <reponse point="1"> 1000 </reponse>
-    <reponse point="0"> 200 </reponse>
+  <libelle>HTTP utilise le port :</libelle>
+  <reponse point="1">... 80</reponse>
+  <reponse point="0">... 22</reponse>
+  <reponse point="0">... 443</reponse>
  </question>
  <question>
-   <libelle>Bonjour je suis la question 1</libelle>
-    <reponse point="0"> 0 </reponse>
-    <reponse point="1"> 1 </reponse>
-    <reponse point="0"> 0 </reponse>
- </question>
- <question>
-   <libelle>Bonjour je suis la question 2</libelle>
-    <reponse point="0"> 500 </reponse>
-    <reponse point="1"> 1000 </reponse>
-    <reponse point="0"> 200 </reponse>
+  <libelle>HTTPS utilise le port :</libelle>
+  <reponse point="0">... 80</reponse>
+  <reponse point="0">... 22</reponse>
+  <reponse point="1">... 443</reponse>
  </question>
 </quizz>
