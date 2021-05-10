@@ -3,6 +3,7 @@
 namespace app\src\controllers;
 
 use app\src\core\controller;
+use app\src\models\CategoryModel;
 
 /**
  * AdminController
@@ -69,6 +70,19 @@ class AdminController extends Controller
         ]);
     }
 
+    public function categories(){
+        $this->isAdminUser();
+
+        $categoryModel = "category";
+        $this->loadModel($categoryModel);
+        $categories = $this->$categoryModel->getAll();
+
+        $this->render('admin', 'categories', [
+            "categories" => $categories,
+            "adminCapacity" => $this,
+        ]);
+    }
+
     public function ajouter(string $slug){
       $this->isAdminUser();
         
@@ -88,16 +102,23 @@ class AdminController extends Controller
                     "adminCapacity" => $this,
                 ]);
                 break;
+
             case 'chapitre':
-                    if (!empty($_POST['course_name']) || !empty($_POST['name'])) {
-                        $this->render('admin', 'ajoutChapitre', [
-                            "adminCapacity" => $this,
-                        ]);
-                    }else{
-                        $error = new ErrorController();
-                        $error->error_403();
-                    }
-                break;
+                if (!empty($_POST['course_name']) || !empty($_POST['name'])) {
+                    $this->render('admin', 'ajoutChapitre', [
+                        "adminCapacity" => $this,
+                    ]);
+                }else{
+                    $error = new ErrorController();
+                    $error->error_403("Vous ne pouvez pas ajouter un chapitre. Selectionner un cours d'abord.");
+                }
+            break;
+
+           case 'categorie':
+               $this->render('admin', 'ajoutCategory', [
+                   "adminCapacity" => $this,
+               ]);
+               break;
            default:
                 $error = new ErrorController();
                 $error->error_404();
@@ -153,5 +174,17 @@ class AdminController extends Controller
         $coursModel = "cours";
         $this->loadModel($coursModel);
         $courses = $this->$coursModel->addChapter($lesson, $name, $slug, $content);
+    }
+
+    public function addCategory($name, $slug, $summary){
+        $Category = "category";
+        $this->loadModel($Category);
+        $courses = $this->$Category->add($name, $slug, $summary);
+    }
+
+    public function deleteCategory($id){
+        $Category = "category";
+        $this->loadModel($Category);
+        $courses = $this->$Category->remove($id);
     }
 }
