@@ -16,7 +16,7 @@
             <img src="//<?= HOST . '/' .FOLDER_ROOT ?>/assets/images/categories.svg" alt="">
             <h3 class="overview-square-title">CATEGORIES</h3>
         </a>
-        <a href="#" class="overview-square">
+        <a href="//<?= HOST . '/' .FOLDER_ROOT ?>/admin/quiz" class="overview-square">
             <span class="overview-square-data"><?= $qcmCount ?></span>
             <img src="//<?= HOST . '/' .FOLDER_ROOT ?>/assets/images/qcm.svg" alt="">
             <h3 class="overview-square-title">QCM</h3>

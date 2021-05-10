@@ -83,6 +83,19 @@ class AdminController extends Controller
         ]);
     }
 
+    public function quiz(){
+        $this->isAdminUser();
+
+        $quizModel = "quiz";
+        $this->loadModel($quizModel);
+        $quizs = $this->$quizModel->getFullInfos();
+
+        $this->render('admin', 'quiz', [
+            "quizs" => $quizs,
+            "adminCapacity" => $this,
+        ]);
+    }
+
     public function ajouter(string $slug){
       $this->isAdminUser();
         
@@ -117,6 +130,16 @@ class AdminController extends Controller
            case 'categorie':
                $this->render('admin', 'ajoutCategory', [
                    "adminCapacity" => $this,
+               ]);
+               break;
+           case 'quiz':
+               $categoriesModel = "category";
+               $this->loadModel($categoriesModel);
+               $categories = $this->$categoriesModel->getAll();
+
+               $this->render('admin', 'ajoutQuiz', [
+                   "adminCapacity" => $this,
+                   "categories" => $categories,
                ]);
                break;
            default:

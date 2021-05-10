@@ -16,6 +16,7 @@ class QuizModel extends Model
         $this->table = "QCM";
         $this->connection();
     }
+
     public function getAllByCategoryName()
 	{
 		$sql = 'SELECT linkXML,name AS category,slug FROM QCM,categories WHERE QCM.category = categories.id;';
@@ -51,6 +52,15 @@ class QuizModel extends Model
 		$stmt->bindParam(':new_difficulty', $newDifficulty, \PDO::PARAM_INT);
 		$stmt->execute();
 	}
+
+    public function getFullInfos()
+    {
+        $sql = 'SELECT linkXML, date_published, category, categories.name AS category_name
+        FROM QCM INNER JOIN categories ON categories.id = QCM.category
+        ';
+        $query = $this->connection->query($sql);
+        return $query->fetchAll();
+    }
 
 	
 
