@@ -1,0 +1,16 @@
+{
+    "description": "projet DAW",
+    "name": "vendor/daw",
+    "authors": [
+        {
+            "name": "Thomas Bénas",
+            "email": "benas.thomas@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {}
+}

@@ -1,0 +1,58 @@
+<quizz>
+ <question>
+   <libelle>Qu'est que SCRUM ?</libelle>
+    <reponse point="1"> Une méthode de gestion de projet AGILE </reponse>
+    <reponse point="0"> Une méthode innovante pour prendre des rapides en kayak</reponse>
+    <reponse point="0"> Une méthode de gestion de projet rigide </reponse>
+ </question>
+ <question>
+   <libelle>PHP est un langage :</libelle>
+    <reponse point="1"> ... côté serveur </reponse>
+    <reponse point="0"> ... côté client </reponse>
+    <reponse point="0"> ... client / serveur </reponse>
+ </question>
+ <question>
+  <libelle>PHP est un langage :</libelle>
+  <reponse point="1"> ... web</reponse>
+  <reponse point="0"> ... logiciel</reponse>
+  <reponse point="0"> ... les deux </reponse>
+ </question>
+ <question>
+  <libelle>Pour interpréter du PHP on a besoin d'un serveur ?</libelle>
+  <reponse point="1">vrai</reponse>
+  <reponse point="0">faux</reponse>
+ </question>
+ <question>
+  <libelle>HTML est un langage de programmation ?</libelle>
+  <reponse point="0">vrai</reponse>
+  <reponse point="1">faux</reponse>
+ </question>
+ <question>
+ <libelle>CSS est un langage de programmation ?</libelle>
+ <reponse point="0">vrai</reponse>
+ <reponse point="1">faux</reponse>
+</question>
+ <question>
+  <libelle>JS peut être désactivé ?</libelle>
+  <reponse point="1">vrai</reponse>
+  <reponse point="0">faux</reponse>
+ </question>
+ <question>
+  <libelle>HTTP est :</libelle>
+  <reponse point="0">... un langage de programmation simple</reponse>
+  <reponse point="1">... un protocole de communication</reponse>
+  <reponse point="0">... une librairie de PHP</reponse>
+ </question>
+ <question>
+  <libelle>HTTP utilise le port :</libelle>
+  <reponse point="1">... 80</reponse>
+  <reponse point="0">... 22</reponse>
+  <reponse point="0">... 443</reponse>
+ </question>
+ <question>
+  <libelle>HTTPS utilise le port :</libelle>
+  <reponse point="0">... 80</reponse>
+  <reponse point="0">... 22</reponse>
+  <reponse point="1">... 443</reponse>
+ </question>
+</quizz>
