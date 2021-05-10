@@ -24,6 +24,7 @@ Projet L3 Développement d'applications web
 * Quiz avec correction, score et niveau utilisateur
 * Forum
 * Inscription & et connexion des utilisateurs
+* Panel d'administrateur pour gérer les cours, quiz, utilisateurs et catégories des cours
 * Deux thèmes
 
 ## Ressources 
