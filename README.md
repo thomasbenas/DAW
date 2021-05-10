@@ -27,6 +27,10 @@ Projet L3 Développement d'applications web
 * Panel d'administrateur pour gérer les cours, quiz, utilisateurs et catégories des cours
 * Deux thèmes
 
+## Problèmes connus
+
+* Le fichier .env ne fonctionne pas sur MAMP (Mac OS) ce qui empêche d'accéder à la base de données. Nous n'avons pas réussi à régler le problème. Cependant il fonctionne très sur Windows avec XAMP, nous l'avons utilisé tout le long du projet sans soucis.
+
 ## Ressources 
 
 * https://nouvelle-techno.fr/actualites/live-coding-introduction-au-mvc-en-php
