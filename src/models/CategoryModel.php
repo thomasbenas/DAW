@@ -34,11 +34,12 @@
 		 * @param string $name
 		 * @param string $description
 		 */
-		public function Add(string $name, string $description) : void
+		public function Add(string $name, string $description, string $slug) : void
 		{
-			$sql = 'INSERT INTO categories (name, description) VALUES (:name, :description);';
+			$sql = 'INSERT INTO categories (name, description, slug) VALUES (:name, :description, :slug);';
 			$request = $this->connection->prepare($sql);
-			$request->bindParam(':name', $description);
+			$request->bindParam(':name', $name);
+            $request->bindParam(':slug', $slug);
 			$request->bindParam(':description', $description);
 			$request->execute();
 		}

@@ -11,7 +11,7 @@
             <img src="//<?= HOST . '/' .FOLDER_ROOT ?>/assets/images/courses.svg" alt="">
             <h3 class="overview-square-title">COURS</h3>
         </a>
-        <a href="#" class="overview-square">
+        <a href="//<?= HOST . '/' .FOLDER_ROOT ?>/admin/categories" class="overview-square">
             <span class="overview-square-data"><?= $categoriesCount  ?></span>
             <img src="//<?= HOST . '/' .FOLDER_ROOT ?>/assets/images/categories.svg" alt="">
             <h3 class="overview-square-title">CATEGORIES</h3>

@@ -1,7 +1,7 @@
 <div class="container">
     <a href="../admin" class="goBack"><i class="fas fa-arrow-left"></i> <span>retour au panel</span></a>
 
-    <h3>Gestion des cours</h3>
+    <h3>Gestion des Categories</h3>
 
     <div class="table table-courses">
         <div class="table-head">
